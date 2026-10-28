@@ -1,0 +1,34 @@
+{
+  "markers": [
+    {
+      "markerId": "marker-circuit-board",
+      "topicId": "circuit-board",
+      "imageFile": "circuit-board.png",
+      "source": "render",
+      "licence": "project",
+      "credit": "",
+      "displayName": "Printed Circuit Board (PCB)",
+      "highlightPartId": "ic-chip"
+    },
+    {
+      "markerId": "marker-differential-gearbox",
+      "topicId": "differential-gearbox",
+      "imageFile": "differential-gearbox.png",
+      "source": "render",
+      "licence": "project",
+      "credit": "",
+      "displayName": "Automotive Differential Gearbox",
+      "highlightPartId": "planetary-bevel-gears"
+    },
+    {
+      "markerId": "marker-four-stroke-engine",
+      "topicId": "four-stroke-engine",
+      "imageFile": "four-stroke-engine.png",
+      "source": "render",
+      "licence": "project",
+      "credit": "",
+      "displayName": "Four-Stroke IC Engine",
+      "highlightPartId": "piston-assembly"
+    }
+  ]
+}

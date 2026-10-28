@@ -1,0 +1,50 @@
+.topic-selector {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+}
+
+.topic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.topic-card {
+    background: #1e1e2f;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: left;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.topic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.topic-card h2 {
+    margin: 0 0 0.5rem;
+    font-size: 1.2rem;
+}
+
+.topic-card p {
+    margin: 0;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.status-text {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.1rem;
+}
+
+.status-text.error {
+    color: #ff6b6b;
+}

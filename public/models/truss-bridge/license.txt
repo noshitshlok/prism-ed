@@ -1,0 +1,8 @@
+Topic: Civil Engineering Truss Structures & Gantry Bridges
+Origin: NASA 3D Resources (Gantry Truss Tower)
+Source URL: https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Gantry
+Licence: Public Domain (United States Government work)
+Author / Copyright: National Aeronautics and Space Administration (NASA)
+Commercial Use: Allowed (NASA Open Data & Media Guidelines)
+Real object or analogue: Real physical structural steel truss gantry structure
+Format: glTF 2.0 Binary (.glb)

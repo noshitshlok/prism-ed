@@ -1,0 +1,8 @@
+Topic: Digital Logic Gates & Integrated Circuit Packaging (7400 Series DIP-14)
+Origin: KiCad Official 3D Package Library (kicad-packages3D)
+Source URL: https://github.com/KiCad/kicad-packages3D/tree/master/Package_DIP.3dshapes
+Licence: GNU General Public License v3.0 with KiCad Library Exception (CC-BY-SA 4.0 compatible)
+Author / Copyright: KiCad MCAD / PCB Contributors
+Commercial Use: Allowed (KiCad Library Exception explicitly permits commercial hardware designs and exports)
+Real object or analogue: Real physical DIP-14 logic IC semiconductor package
+Format: glTF 2.0 Binary (.glb)

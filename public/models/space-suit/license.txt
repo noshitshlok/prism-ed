@@ -1,0 +1,8 @@
+Topic: Extravehicular Mobility Unit (EMU Space Suit)
+Origin: Google model-viewer Shared Assets (Apollo EMU)
+Source URL: https://modelviewer.dev/shared-assets/models/Astronaut.glb
+Licence: Creative Commons Attribution 4.0 International (CC-BY 4.0)
+Author / Copyright: Google LLC & Smithsonian Institution
+Commercial Use: Allowed with attribution
+Real object or analogue: Real physical Apollo EMU spacesuit
+Format: glTF 2.0 Binary (.glb)

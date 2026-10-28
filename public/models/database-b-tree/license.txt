@@ -1,0 +1,8 @@
+Topic: Database Storage Engine & B+ Tree Indexing (Solid State Storage Drive)
+Origin: Wissemm697/pc-builder
+Source URL: https://github.com/Wissemm697/pc-builder/tree/main/models
+Licence: MIT License
+Author / Copyright: Wissemm697 & Contributors
+Commercial Use: Allowed (MIT License)
+Real object or analogue: Real physical solid-state non-volatile storage drive
+Format: glTF 2.0 Binary (.glb)

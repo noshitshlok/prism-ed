@@ -1,0 +1,8 @@
+Topic: Three-Phase AC Induction Motor (TEFC Industrial Motor)
+Origin: AWS IoT TwinMaker Open Sample Assets
+Source URL: https://github.com/architecturebytes/aws-iot-twinmaker/tree/master/models
+Licence: Apache License 2.0 / Creative Commons
+Author / Copyright: Amazon Web Services & Contributors
+Commercial Use: Allowed (Apache-2.0 / CC open asset)
+Real object or analogue: Real physical industrial AC induction motor
+Format: glTF 2.0 Binary (.glb)

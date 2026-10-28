@@ -1,0 +1,8 @@
+Topic: Compiler Pipeline Stages (Lexer to Code Generation Pipeline)
+Origin: Khronos Group glTF-Sample-Models (ReciprocatingSaw)
+Source URL: https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/ReciprocatingSaw
+Licence: Creative Commons Attribution 4.0 International (CC-BY 4.0)
+Author / Copyright: The Khronos Group Inc. & Contributors
+Commercial Use: Allowed with attribution
+Real object or analogue: Real electromechanical automated production pipeline analogue
+Format: glTF 2.0 Binary (.glb)

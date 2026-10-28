@@ -1,0 +1,1778 @@
+{
+    "topics": [
+        {
+            "id": "circuit-board",
+            "name": "Circuit Board Basics",
+            "description": "Explore the fundamental components on a printed circuit board and their electrical roles.",
+            "discipline": "Electrical Engineering",
+            "subfield": "Electronics & PCB Design",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "pcb",
+                "electronics",
+                "hardware",
+                "circuits"
+            ],
+            "prerequisites": [
+                "Basic DC Circuit Analysis",
+                "Ohm's Law"
+            ],
+            "equationsCovered": [
+                "V = I * R",
+                "C = Q / V",
+                "P = V * I"
+            ],
+            "modelUrl": "/models/circuit-board/scene.gltf",
+            "modelFormat": "gltf",
+            "modelSource": "uploaded",
+            "autoRotate": false,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "ic-chip",
+                    "name": "Integrated Circuit (IC) Chip",
+                    "hotspotPosition": "0.018m 0.002m 0.056m",
+                    "explanation": "The IC chip is the microelectronic core of the board, integrating thousands to billions of microscopic transistors that execute logic operations, signal amplification, and data routing.",
+                    "formulaOrLaw": "Moore's Law & Boolean Logic Functions",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "ic-chip"
+                },
+                {
+                    "id": "capacitors",
+                    "name": "Electrolytic Capacitors",
+                    "hotspotPosition": "0.033m 0.002m 0.026m",
+                    "explanation": "Capacitors store electrostatic energy across a dielectric layer, acting as decoupling reservoirs that smooth voltage ripples and suppress high-frequency supply transients.",
+                    "formulaOrLaw": "C = Q / V, E = 0.5 * C * V^2",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "capacitors"
+                },
+                {
+                    "id": "edge-connector",
+                    "name": "Edge Connector Interface",
+                    "hotspotPosition": "0.016m 0.002m 0.032m",
+                    "explanation": "Gold-plated trace fingers along the PCB perimeter provide low-impedance physical and electrical interconnects to backplanes or host expansion buses.",
+                    "formulaOrLaw": "Contact Resistance R_c = rho / (2 * a)",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "edge-connector"
+                },
+                {
+                    "id": "diodes",
+                    "name": "Rectifier Diodes",
+                    "hotspotPosition": "0.018m 0.002m 0.062m",
+                    "explanation": "Diodes form a unidirectional semiconductor p-n junction, preventing reverse-polarity damage and conducting rectification of alternating signals.",
+                    "formulaOrLaw": "Shockley Diode Equation: I = I_s * (e^(V / (n*V_t)) - 1)",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "diodes"
+                },
+                {
+                    "id": "resistor-array",
+                    "name": "Surface-Mount Resistors",
+                    "hotspotPosition": "0.022m 0.002m 0.045m",
+                    "explanation": "Resistors restrict electric current flow and create calibrated voltage dividers to bias active semiconductor stages properly.",
+                    "formulaOrLaw": "Ohm's Law: V = I * R, P = I^2 * R",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "resistor-array"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "space-suit",
+            "name": "Extravehicular Mobility Unit (EMU)",
+            "description": "Examine the aerospace life support and protective subsystems of an astronaut extravehicular suit.",
+            "discipline": "Aerospace Engineering",
+            "subfield": "Life Support & Space Systems",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "aerospace",
+                "life-support",
+                "eva",
+                "nasa"
+            ],
+            "prerequisites": [
+                "Fluid Mechanics",
+                "Thermodynamics"
+            ],
+            "equationsCovered": [
+                "Ideal Gas Law P*V = n*R*T",
+                "Radiative Heat Transfer Q = eps*sigma*A*T^4"
+            ],
+            "modelUrl": "/models/space-suit/Astronaut.glb",
+            "modelFormat": "glb",
+            "modelSource": "uploaded",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "helmet",
+                    "name": "Extravehicular Visor Assembly",
+                    "hotspotPosition": "0.0m 1.6m 0.2m",
+                    "explanation": "Constructed from high-impact polycarbonate with vapor-deposited gold coatings to shield against micrometeorites, extreme UV radiation, and solar glare while maintaining internal pressure.",
+                    "formulaOrLaw": "Stefan-Boltzmann Radiation & Snell's Law",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "helmet"
+                },
+                {
+                    "id": "chest-pack",
+                    "name": "Primary Life Support System (PLSS)",
+                    "hotspotPosition": "0.0m 0.9m 0.3m",
+                    "explanation": "Contains high-pressure O2 recharge tanks, lithium hydroxide (LiOH) canisters for CO2 scrubbing, sublimation coolers, and recirculating fans.",
+                    "formulaOrLaw": "Partial Pressure: P_total = P_O2 + P_CO2 + P_H2O",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "chest-pack"
+                },
+                {
+                    "id": "gloves",
+                    "name": "Pressurized EVA Gloves",
+                    "hotspotPosition": "0.4m 0.7m 0.2m",
+                    "explanation": "Features integrated fingertip heating circuits and rotary wrist bearings that preserve tactile dexterity under 29.6 kPa differential pressure.",
+                    "formulaOrLaw": "Hoop Stress: sigma = (P * r) / t",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "gloves"
+                },
+                {
+                    "id": "tmg-suit",
+                    "name": "Thermal Micrometeoroid Garment (TMG)",
+                    "hotspotPosition": "0.0m 1.2m -0.1m",
+                    "explanation": "Multi-layer insulation (MLI) composed of aluminized Mylar, Nomex, and Kevlar that halts hypervelocity orbital debris and stops conductive heat loss.",
+                    "formulaOrLaw": "Hypervelocity Kinetic Energy E_k = 0.5 * m * v^2",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "tmg-suit"
+                },
+                {
+                    "id": "lcvg",
+                    "name": "Liquid Cooling & Ventilation Garment",
+                    "hotspotPosition": "0.0m 0.5m 0.1m",
+                    "explanation": "A tight-fitting nylon-spandex undergarment woven with over 90 meters of flexible tubing circulating chilled water to absorb astronaut metabolic heat.",
+                    "formulaOrLaw": "Convective Heat Absorption: Q = m_dot * c_p * Delta_T",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "lcvg"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "human-heart",
+            "name": "Human Heart & Cardiovascular Mechanics",
+            "description": "Analyze the four-chambered muscular pump, hemodynamic pressures, and valvular fluid dynamics.",
+            "discipline": "Biomedical Engineering",
+            "subfield": "Cardiovascular Physiology & Biomechanics",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "biomechanics",
+                "cardiology",
+                "hemodynamics",
+                "physiology"
+            ],
+            "prerequisites": [
+                "Fluid Mechanics",
+                "Basic Anatomy"
+            ],
+            "equationsCovered": [
+                "Cardiac Output CO = HR * SV",
+                "Darcy-Weisbach Equation",
+                "Poiseuille's Law Delta_P = (8*mu*L*Q)/(pi*r^4)"
+            ],
+            "modelUrl": "/models/human-heart/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "scan",
+            "autoRotate": false,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "aorta",
+                    "name": "Aorta & Aortic Arch",
+                    "hotspotPosition": "0.020m 0.520m 0.030m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "VH_M_aortic_valve",
+                    "explanation": "The main systemic artery conducting oxygenated blood from the left ventricle under high systolic pressure into the systemic circulatory system.",
+                    "formulaOrLaw": "Poiseuille's Law: Q = (pi * Delta_P * r^4) / (8 * eta * L)"
+                },
+                {
+                    "id": "pulmonary-artery",
+                    "name": "Pulmonary Artery",
+                    "hotspotPosition": "0.010m 0.500m 0.060m",
+                    "hotspotNormal": "0m 0.5m 1m",
+                    "explodeOffset": null,
+                    "partNode": "VH_M_heart",
+                    "explanation": "Bifurcating vessel carrying deoxygenated blood from the right ventricle to pulmonary capillary beds for gas exchange.",
+                    "formulaOrLaw": "Pulmonary Vascular Resistance PVR = 80 * (MPAP - PCWP) / CO"
+                },
+                {
+                    "id": "superior-vena-cava",
+                    "name": "Superior Vena Cava",
+                    "hotspotPosition": "0.050m 0.510m 0.010m",
+                    "hotspotNormal": "1m 0.5m 0m",
+                    "explodeOffset": null,
+                    "partNode": "VH_M_heart",
+                    "explanation": "Large low-pressure venous trunk returning systemic blood from head, neck, and upper limbs directly into the right atrium.",
+                    "formulaOrLaw": "Central Venous Pressure CVP = 2 - 8 mmHg"
+                },
+                {
+                    "id": "left-ventricle",
+                    "name": "Left Ventricle",
+                    "hotspotPosition": "-0.020m 0.440m 0.050m",
+                    "hotspotNormal": "-0.7m -0.5m 0.5m",
+                    "explodeOffset": null,
+                    "partNode": "VH_M_mitral_valve",
+                    "explanation": "Thick-walled muscular pumping chamber generating systemic pressure (120 mmHg) to perfuse organs across systemic peripheral resistance.",
+                    "formulaOrLaw": "Frank-Starling Law: Stroke Volume prop End-Diastolic Volume"
+                },
+                {
+                    "id": "right-ventricle",
+                    "name": "Right Ventricle",
+                    "hotspotPosition": "0.040m 0.440m 0.040m",
+                    "hotspotNormal": "0.7m -0.5m 0.5m",
+                    "explodeOffset": null,
+                    "partNode": "VH_M_tricuspid_valve",
+                    "explanation": "Crescentic compliant muscular chamber ejecting deoxygenated blood into low-impedance pulmonary circulation.",
+                    "formulaOrLaw": "Right Ventricular Stroke Work Index RVSWI"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "solar-system",
+            "name": "Solar System Orbital Mechanics",
+            "description": "Explore planetary motion, gravitational potential wells, and Keplerian orbital dynamics.",
+            "discipline": "Astrophysics & Aerospace",
+            "subfield": "Orbital Mechanics & Planetary Physics",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "astronomy",
+                "orbital-mechanics",
+                "kepler",
+                "gravitation"
+            ],
+            "prerequisites": [
+                "Classical Mechanics",
+                "Vector Calculus"
+            ],
+            "equationsCovered": [
+                "Kepler's Third Law T^2 = (4*pi^2 / G*M) * a^3",
+                "Newton's Gravitation F = G*m1*m2 / r^2",
+                "Vis-Viva Equation v^2 = G*M*(2/r - 1/a)"
+            ],
+            "modelUrl": "/models/solar-system/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "heat-shield",
+                    "name": "Thermal Protection System (TPS Heat Shield)",
+                    "hotspotPosition": "-0.600m 0.800m 1.200m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "ThermalProtectionSystem",
+                    "explanation": "Reinforced carbon-composite foam shield withstanding 1,400 deg C during perihelion solar approaches within 9.8 solar radii.",
+                    "formulaOrLaw": "Stefan-Boltzmann Law: j = epsilon * sigma * T^4"
+                },
+                {
+                    "id": "solar-arrays",
+                    "name": "Photovoltaic Solar Arrays",
+                    "hotspotPosition": "1.500m 0.800m -1.700m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "SolarArray",
+                    "explanation": "Actively water-cooled gallium arsenide solar cell arrays articulated to adjust incidence angle against extreme solar flux.",
+                    "formulaOrLaw": "Inverse-Square Law: Flux S = P / (4 * pi * d^2)"
+                },
+                {
+                    "id": "magnetometer-boom",
+                    "name": "FIELDS Magnetometer Boom",
+                    "hotspotPosition": "-0.600m 0.800m -4.500m",
+                    "hotspotNormal": "0m 0m -1m",
+                    "explodeOffset": null,
+                    "partNode": "FieldsBoom",
+                    "explanation": "Deployable composite boom isolating fluxgate magnetometers from spacecraft electrical bus interference to measure solar wind magnetic fields.",
+                    "formulaOrLaw": "Maxwell-Ampere Law: curl B = mu_0 * J + mu_0 * epsilon_0 * dE/dt"
+                },
+                {
+                    "id": "solar-wind-analyzer",
+                    "name": "SWEAP Solar Wind Analyzer",
+                    "hotspotPosition": "-2.500m 0.800m -1.700m",
+                    "hotspotNormal": "-1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "SweapCup",
+                    "explanation": "Faraday cup measuring velocity, density, and thermal distribution of solar corona electrons and protons.",
+                    "formulaOrLaw": "Lorentz Force Law: F = q * (E + v x B)"
+                },
+                {
+                    "id": "spacecraft-bus",
+                    "name": "Avionics Core Spacecraft Bus",
+                    "hotspotPosition": "-0.600m 0.800m -1.700m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "SpacecraftBus",
+                    "explanation": "Autonomous hexagonal bus housing guidance computers, reaction wheels, and propulsion systems navigating solar orbits.",
+                    "formulaOrLaw": "Kepler's Third Law: T^2 = (4 * pi^2 * a^3) / (G * M)"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "digital-logic-gates",
+            "name": "Digital Logic Gates, Adders & Flip-Flops",
+            "description": "Examine combinational and sequential digital logic circuits from NAND gates to synchronous registers.",
+            "discipline": "Electrical & Computer Engineering",
+            "subfield": "Digital Electronics",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "logic-gates",
+                "boolean-algebra",
+                "adders",
+                "flip-flops"
+            ],
+            "prerequisites": [
+                "Boolean Algebra",
+                "Basic Circuit Theory"
+            ],
+            "equationsCovered": [
+                "De Morgan's Theorem",
+                "Propagation Delay t_pd = t_r + t_f",
+                "Setup & Hold Times"
+            ],
+            "modelUrl": "/models/digital-logic-gates/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "dip-body",
+                    "name": "DIP-14 Molded Epoxy Body",
+                    "hotspotPosition": "0.000m 0.015m 0.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "IC-BODY-EPOXY-04",
+                    "explanation": "Thermoset black epoxy transfer molding encapsulating the internal silicon logic die against moisture, dust, and electrical degradation.",
+                    "formulaOrLaw": "Die Thermal Resistance: Theta_JA = (T_J - T_A) / P_d"
+                },
+                {
+                    "id": "lead-frame-pins",
+                    "name": "Lead Frame Contact Pins",
+                    "hotspotPosition": "0.025m -0.015m 0.030m",
+                    "hotspotNormal": "1m -0.5m 0m",
+                    "explodeOffset": null,
+                    "partNode": "PIN-01",
+                    "explanation": "14 stamped tin-plated copper alloy leads on a 2.54mm (0.1 in) standard pitch that solder into PCB plated through-holes.",
+                    "formulaOrLaw": "Ohm's Law & Contact Resistance: V = I * R"
+                },
+                {
+                    "id": "pin-1-notch",
+                    "name": "Pin 1 Index Notch & Bevel",
+                    "hotspotPosition": "0.000m 0.015m 0.065m",
+                    "hotspotNormal": "0m 0.5m 1m",
+                    "explodeOffset": null,
+                    "partNode": "IC-BODY-EPOXY-04",
+                    "explanation": "Keyed physical semicircular notch on the IC package denoting polarity and pin 1 location to ensure correct socket orientation.",
+                    "formulaOrLaw": "Standard JEDEC MS-001 Dual In-Line Specification"
+                },
+                {
+                    "id": "silicon-die-cavity",
+                    "name": "Silicon Die Internal Cavity",
+                    "hotspotPosition": "0.000m 0.005m 0.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "IC-BODY-EPOXY-04",
+                    "explanation": "The internal paddle location containing the 7400 quadruple 2-input NAND gate bipolar transistor silicon layout.",
+                    "formulaOrLaw": "Boolean Logic Transfer Function: Y = NOT (A AND B)"
+                },
+                {
+                    "id": "output-pin-3",
+                    "name": "NAND Gate 1 Output Pin (Pin 3)",
+                    "hotspotPosition": "0.025m -0.015m 0.000m",
+                    "hotspotNormal": "1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "PIN-01",
+                    "explanation": "Active logic output delivering TTL standard high (>2.4V) or low (<0.4V) signal levels with 16mA sink capability.",
+                    "formulaOrLaw": "Propagation Delay Equation: t_pd = (t_PLH + t_PHL) / 2"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "process-scheduling",
+            "name": "OS Process Scheduling & Concurrency",
+            "description": "Understand kernel scheduling queues, preemptive dispatch, context switching, and multi-core synchronization.",
+            "discipline": "Computer Science",
+            "subfield": "Operating Systems",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "os",
+                "scheduling",
+                "multithreading",
+                "context-switch"
+            ],
+            "prerequisites": [
+                "Operating Systems Basics",
+                "Data Structures"
+            ],
+            "equationsCovered": [
+                "Turnaround Time T_turn = T_completion - T_arrival",
+                "Waiting Time T_wait = T_turn - T_burst",
+                "Little's Law L = lambda * W"
+            ],
+            "modelUrl": "/models/process-scheduling/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "analogue",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "multi-core-die",
+                    "name": "Multi-Core Silicon Execution Core",
+                    "hotspotPosition": "0.000m 0.000m 0.003m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "cpu_body",
+                    "explanation": "Physical multi-core microprocessor execution silicon executing prioritized task threads, context switches, and dispatch loops.",
+                    "formulaOrLaw": "Amdahl's Law: Speedup S = 1 / ((1 - p) + p / N)"
+                },
+                {
+                    "id": "integrated-heat-spreader",
+                    "name": "Integrated Heat Spreader (IHS)",
+                    "hotspotPosition": "0.000m 0.000m 0.005m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_ihs_top",
+                    "explanation": "Nickel-plated copper thermal spreader conducting dissipated joule heat away from the silicon during heavy multi-threaded compute workloads.",
+                    "formulaOrLaw": "Fourier's Law: q = -k * nabla T"
+                },
+                {
+                    "id": "pcb-substrate",
+                    "name": "Organic Multilayer Substrate",
+                    "hotspotPosition": "0.015m 0.015m 0.002m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "cpu_body",
+                    "explanation": "High-density interconnect package routing hundreds of data lanes, memory channels, and interrupt lines between socket and silicon.",
+                    "formulaOrLaw": "Transmission Line Impedance: Z_0 = sqrt(L / C)"
+                },
+                {
+                    "id": "pin-grid-interface",
+                    "name": "LGA Contact Pad Array",
+                    "hotspotPosition": "0.000m 0.000m -0.002m",
+                    "hotspotNormal": "0m 0m -1m",
+                    "explodeOffset": null,
+                    "partNode": "cpu_body",
+                    "explanation": "Land Grid Array surface providing low-inductance power delivery and hardware interrupt lines for real-time CPU task scheduling.",
+                    "formulaOrLaw": "Interrupt Latency Equation: T_lat = T_sync + T_pipeline"
+                },
+                {
+                    "id": "pin-1-indicator",
+                    "name": "Thread Dispatch Alignment Notch",
+                    "hotspotPosition": "-0.018m -0.018m 0.001m",
+                    "hotspotNormal": "-1m -1m 1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_triangle",
+                    "explanation": "Physical hardware orientation key ensuring correct socket indexing for SMP processor bus synchronization.",
+                    "formulaOrLaw": "Round-Robin Scheduling Quantum: T_turnaround = T_wait + T_burst"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "compiler-pipeline",
+            "name": "Compiler Pipeline & Optimization Engine",
+            "description": "Trace compilation from lexical tokenization and abstract syntax trees to SSA intermediate representation and machine code generation.",
+            "discipline": "Computer Science",
+            "subfield": "Compilers & Programming Languages",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "compilers",
+                "ast",
+                "llvm",
+                "optimization"
+            ],
+            "prerequisites": [
+                "Data Structures",
+                "Automata Theory"
+            ],
+            "equationsCovered": [
+                "Chomsky Hierarchy",
+                "SSA Dominance Frontiers",
+                "Register Allocation Graph Coloring"
+            ],
+            "modelUrl": "/models/compiler-pipeline/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "analogue",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "motor-armature-lexer",
+                    "name": "Electric Drive Motor (Lexer Stage)",
+                    "hotspotPosition": "-120.000m 10.000m 40.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "Motor",
+                    "explanation": "The prime power source converting input electrical current into rotational momentum, representing the lexer converting raw source streams into tokens.",
+                    "formulaOrLaw": "Lexical Token Throughput: Tokens/sec = Characters / Avg_Token_Len"
+                },
+                {
+                    "id": "stator-field-parser",
+                    "name": "Stator Field Assembly (Parser Stage)",
+                    "hotspotPosition": "-80.000m 10.000m 40.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "Stator",
+                    "explanation": "Stationary electromagnetic poles creating the structured field that guides rotation, analogue to context-free grammar parsing into Abstract Syntax Trees.",
+                    "formulaOrLaw": "Context-Free Grammar: G = (V, Sigma, R, S)"
+                },
+                {
+                    "id": "gearbox-optimizer",
+                    "name": "Helical Gear Reduction (Optimizer Stage)",
+                    "hotspotPosition": "-20.000m 10.000m 40.000m",
+                    "hotspotNormal": "1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "Gearbox",
+                    "explanation": "High-torque gear reduction set matching speed and force for maximum mechanical efficiency, representing compiler optimization passes.",
+                    "formulaOrLaw": "Gear Ratio: i = omega_in / omega_out = T_out / T_in"
+                },
+                {
+                    "id": "eccentric-slider-ir",
+                    "name": "Eccentric Drive Mechanism (IR Transformation)",
+                    "hotspotPosition": "30.000m 10.000m 40.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "DriveLinkage",
+                    "explanation": "Mechanical linkage translating rotational motion into linear reciprocation, analogue to intermediate representation (IR) lowering.",
+                    "formulaOrLaw": "Kinematic Displacement: x(theta) = r * cos(theta) + sqrt(l^2 - r^2 * sin^2(theta))"
+                },
+                {
+                    "id": "cutter-guide-codegen",
+                    "name": "Reciprocating Tool Guide (Code Generation)",
+                    "hotspotPosition": "60.000m 10.000m 40.000m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "Guide",
+                    "explanation": "Precision output guide executing physical cut operations on workpieces, representing final assembly/machine code emission.",
+                    "formulaOrLaw": "Acyclic Machine Cycle Scheduling: T_exec = Sum(CPI_i * I_i) / f"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "memory-data-structures",
+            "name": "Memory Layout & Cache-Conscious Data Structures",
+            "description": "Analyze CPU cache hierarchies, memory alignment, spatial/temporal locality, and array vs pointer-chasing data structures.",
+            "discipline": "Computer Science",
+            "subfield": "Computer Systems & Algorithms",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "memory",
+                "cache",
+                "data-structures",
+                "locality"
+            ],
+            "prerequisites": [
+                "C Programming",
+                "Computer Architecture"
+            ],
+            "equationsCovered": [
+                "Average Memory Access Time AMAT = Hit_time + Miss_rate * Miss_penalty",
+                "Spatial & Temporal Locality Hit Ratio"
+            ],
+            "modelUrl": "/models/memory-data-structures/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "dram-chips",
+                    "name": "High-Density DRAM Chip Packages",
+                    "hotspotPosition": "0.001m 0.000m 0.016m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "ram_body",
+                    "explanation": "High-speed synchronous dynamic RAM ICs storing contiguous arrays, pointer linked-lists, and binary trees in 64-bit rows.",
+                    "formulaOrLaw": "Memory Latency: t_CAS + t_RCD + t_RP"
+                },
+                {
+                    "id": "gold-fingers",
+                    "name": "Gold Contact Edge Interface",
+                    "hotspotPosition": "0.000m 0.000m -0.015m",
+                    "hotspotNormal": "0m 0m -1m",
+                    "explodeOffset": null,
+                    "partNode": "ram_body",
+                    "explanation": "288-pin gold-plated edge connector mating with DDR motherboard slot for parallel differential data and address bus routing.",
+                    "formulaOrLaw": "Bus Bandwidth: BW = Bus_Clock * Transfers * Width_Bytes"
+                },
+                {
+                    "id": "pcb-substrate",
+                    "name": "Multilayer FR4 PCB Substrate",
+                    "hotspotPosition": "-0.015m 0.000m 0.010m",
+                    "hotspotNormal": "-1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "ram_body",
+                    "explanation": "Precision 8-layer circuit board maintaining impedance-matched trace lengths for memory address buses.",
+                    "formulaOrLaw": "Microstrip Impedance Equation: Z_0 = (87 / sqrt(epsilon_r + 1.41)) * ln(5.98h / (0.8w + t))"
+                },
+                {
+                    "id": "spd-eeprom",
+                    "name": "Serial Presence Detect (SPD) EEPROM",
+                    "hotspotPosition": "0.000m 0.000m 0.031m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_ram_top",
+                    "explanation": "Non-volatile ROM chip providing BIOS with memory timing parameters, CAS latency, and memory block geometry.",
+                    "formulaOrLaw": "JEDEC DDR4/DDR5 Memory Standard Specification"
+                },
+                {
+                    "id": "decoupling-caps",
+                    "name": "SMD Decoupling Capacitor Array",
+                    "hotspotPosition": "0.010m 0.000m 0.005m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "ram_body",
+                    "explanation": "Surface mount ceramic bypass capacitors stabilizing voltage against high-frequency switching noise during burst reads.",
+                    "formulaOrLaw": "Bypass Filtering Cutoff: f_c = 1 / (2 * pi * R * C)"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "os-virtual-memory",
+            "name": "Virtual Memory & Translation Lookaside Buffer",
+            "description": "Examine address translation, page tables, TLB hits/misses, and demand-paged memory isolation.",
+            "discipline": "Computer Science",
+            "subfield": "Operating Systems",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "virtual-memory",
+                "paging",
+                "tlb",
+                "mmu"
+            ],
+            "prerequisites": [
+                "Operating Systems",
+                "Computer Architecture"
+            ],
+            "equationsCovered": [
+                "Effective Access Time EAT = (1 - p)*t_mem + p*t_fault",
+                "Multi-Level Page Table Offsets"
+            ],
+            "modelUrl": "/models/os-virtual-memory/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "analogue",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "page-frames-dram",
+                    "name": "Physical Page Frames (DRAM Bank)",
+                    "hotspotPosition": "0.001m 0.000m 0.016m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "ram_body",
+                    "explanation": "Fixed-size physical 4KB memory page frames allocated by the OS kernel virtual memory manager to process virtual address spaces.",
+                    "formulaOrLaw": "Virtual Address Translation: PA = (Page_Table[VPN] << 12) | Offset"
+                },
+                {
+                    "id": "address-bus-fingers",
+                    "name": "Memory Address Bus Edge Pins",
+                    "hotspotPosition": "0.000m 0.000m -0.015m",
+                    "hotspotNormal": "0m 0m -1m",
+                    "explodeOffset": null,
+                    "partNode": "ram_body",
+                    "explanation": "Parallel multiplexed address bus lines carrying translated physical frame numbers from CPU MMU directly to DRAM row/column decoders.",
+                    "formulaOrLaw": "Physical Address Size: N_bits = log2(RAM_Capacity_Bytes)"
+                },
+                {
+                    "id": "tlb-cache-region",
+                    "name": "TLB Frame Buffer Substrate",
+                    "hotspotPosition": "-0.015m 0.000m 0.010m",
+                    "hotspotNormal": "-1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "ram_body",
+                    "explanation": "High-speed routing plane supporting fast Translation Lookaside Buffer lookups to avoid multi-level page table walks.",
+                    "formulaOrLaw": "Effective Access Time: EAT = Hit_Rate * (t_TLB + t_RAM) + (1 - Hit_Rate) * (t_TLB + 2*t_RAM)"
+                },
+                {
+                    "id": "config-timing-spd",
+                    "name": "Memory Timing & Boundary Register",
+                    "hotspotPosition": "0.000m 0.000m 0.031m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_ram_top",
+                    "explanation": "Hardware configuration unit storing physical memory boundaries, reserved kernel address space limits, and page attributes.",
+                    "formulaOrLaw": "Page Table Entry Attributes: Present | Writable | User | Dirty | Accessed"
+                },
+                {
+                    "id": "voltage-rail-caps",
+                    "name": "Power Rail Transient Suppression",
+                    "hotspotPosition": "0.010m 0.000m 0.005m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "ram_body",
+                    "explanation": "Capacitive decoupling network preventing page read/write corruption caused by current surges during TLB shootdowns.",
+                    "formulaOrLaw": "Charge Conservation: Q = C * V, Delta_V = I * Delta_t / C"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "networking-protocol-stack",
+            "name": "OSI & TCP/IP Protocol Stack",
+            "description": "Examine packet encapsulation, TCP flow & congestion control, IP routing, and Ethernet framing.",
+            "discipline": "Computer Science",
+            "subfield": "Computer Networks",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "networking",
+                "tcp-ip",
+                "osi",
+                "routing"
+            ],
+            "prerequisites": [
+                "Data Communications",
+                "Operating Systems"
+            ],
+            "equationsCovered": [
+                "Mathis TCP Throughput B <= (1.22*MSS)/(RTT*sqrt(p))",
+                "Bandwidth-Delay Product BDP = Bandwidth * RTT"
+            ],
+            "modelUrl": "/models/networking-protocol-stack/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "shield-housing",
+                    "name": "Shielded Metallic Outer Housing",
+                    "hotspotPosition": "0.000m 0.030m 0.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "SHIELD",
+                    "explanation": "Nickel-plated brass casing providing Faraday shield protection against electromagnetic interference (EMI) and common-mode noise.",
+                    "formulaOrLaw": "Shielding Effectiveness: SE = 20 * log10(E_inc / E_trans)"
+                },
+                {
+                    "id": "contact-pins-8",
+                    "name": "8-Pin Differential Contact Wires",
+                    "hotspotPosition": "0.000m 0.010m -0.020m",
+                    "hotspotNormal": "0m 0m -1m",
+                    "explodeOffset": null,
+                    "partNode": "PINS",
+                    "explanation": "Gold-plated phosphor bronze contacts connecting 4 balanced twisted pairs for Gigabit 1000BASE-T full-duplex Ethernet signalling.",
+                    "formulaOrLaw": "Differential Signal Voltage: V_diff = V_p - V_n"
+                },
+                {
+                    "id": "link-activity-led",
+                    "name": "Gigabit Link & Activity LED",
+                    "hotspotPosition": "0.040m 0.050m 0.030m",
+                    "hotspotNormal": "1m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "LEDS",
+                    "explanation": "Integrated dual-color optical indicator signalling physical layer carrier detect (1Gbps link) and packet collision/activity.",
+                    "formulaOrLaw": "Ethernet Interpacket Gap: IPG = 96 bit times (96 ns @ 1Gbps)"
+                },
+                {
+                    "id": "spring-latch-cavity",
+                    "name": "Spring Latch Retention Cavity",
+                    "hotspotPosition": "0.000m -0.040m 0.030m",
+                    "hotspotNormal": "0m -1m 1m",
+                    "explodeOffset": null,
+                    "partNode": "HOUSING",
+                    "explanation": "Standard RJ45 modular jack socket mechanical retention clip securing 8P8C twisted pair cable patch cords.",
+                    "formulaOrLaw": "ANSI/TIA-568 Twisted Pair Standard Wiring Configuration"
+                },
+                {
+                    "id": "pcb-ground-pegs",
+                    "name": "PCB Solder Leads & Chassis Ground",
+                    "hotspotPosition": "0.050m -0.060m -0.030m",
+                    "hotspotNormal": "1m -1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "PINS",
+                    "explanation": "Through-hole solder pins providing electrical connection to physical layer (PHY) transceiver chips and magnetic isolation transformers.",
+                    "formulaOrLaw": "Nyquist Channel Capacity: C = 2 * B * log2(M)"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "database-b-tree",
+            "name": "B+ Tree Indexing & Storage Engine",
+            "description": "Analyze self-balancing B+ trees, write-ahead logging (WAL), page buffer pools, and ACID transaction mechanics.",
+            "discipline": "Computer Science",
+            "subfield": "Database Systems",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "databases",
+                "indexing",
+                "b-plus-tree",
+                "acid"
+            ],
+            "prerequisites": [
+                "Data Structures",
+                "Operating Systems"
+            ],
+            "equationsCovered": [
+                "B+ Tree Height h <= ceil(log_(M/2) (N))",
+                "ARIES Recovery Protocol"
+            ],
+            "modelUrl": "/models/database-b-tree/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "nand-flash",
+                    "name": "3D NAND Flash Memory Package",
+                    "hotspotPosition": "0.040m 0.000m 0.001m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "ssd_body",
+                    "explanation": "Non-volatile solid-state memory storing persistent B+ tree index nodes, leaf nodes, and key-pointer page blocks across power cycles.",
+                    "formulaOrLaw": "B+ Tree Node Fanout: Max Keys M = Block_Size / (Key_Size + Ptr_Size)"
+                },
+                {
+                    "id": "controller-asic",
+                    "name": "Flash Memory Controller ASIC",
+                    "hotspotPosition": "0.020m 0.000m 0.001m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "ssd_body",
+                    "explanation": "High-performance processor running the Flash Translation Layer (FTL), page allocation, wear leveling, and tree index lookups.",
+                    "formulaOrLaw": "B+ Tree Search Complexity: O(log_B N) disk I/O operations"
+                },
+                {
+                    "id": "pcie-interface",
+                    "name": "High-Speed Host Interface Connector",
+                    "hotspotPosition": "-0.010m 0.000m 0.001m",
+                    "hotspotNormal": "-1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "ssd_body",
+                    "explanation": "PCIe / SATA high-speed connector executing asynchronous DMA transfers of B+ tree leaf pages directly to database buffer pool.",
+                    "formulaOrLaw": "Direct Memory Access Bandwidth: BW = Lane_Count * Gigatransfers * 8/10"
+                },
+                {
+                    "id": "screw-mount-retention",
+                    "name": "M.2 Physical Retention Notch",
+                    "hotspotPosition": "0.080m 0.000m 0.001m",
+                    "hotspotNormal": "1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_ssd_screw",
+                    "explanation": "Standard M.2 form-factor chassis mount anchoring the storage drive firmly to the server motherboard chassis.",
+                    "formulaOrLaw": "JEDEC Solid State Drive Form Factor Specification MO-300"
+                },
+                {
+                    "id": "pcb-ground-plane",
+                    "name": "Multilayer Ground Shielding Plane",
+                    "hotspotPosition": "0.035m 0.000m -0.001m",
+                    "hotspotNormal": "0m -1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "ssd_body",
+                    "explanation": "Internal copper thermal and ground plane conducting heat away from flash controllers during sequential tree leaf index scans.",
+                    "formulaOrLaw": "Heat Dissipation Equation: P = I_active^2 * R_internal"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "distributed-microservices",
+            "name": "Distributed Cloud Microservices Architecture",
+            "description": "Understand API gateways, service meshes, circuit breakers, distributed consensus, and event-driven messaging.",
+            "discipline": "Software Engineering",
+            "subfield": "Distributed Systems & Cloud",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "microservices",
+                "cloud",
+                "distributed-systems",
+                "grpc"
+            ],
+            "prerequisites": [
+                "Software Engineering",
+                "Computer Networks"
+            ],
+            "equationsCovered": [
+                "CAP Theorem",
+                "Little's Law L = lambda * W",
+                "Raft Consensus Quorum Q = floor(N/2) + 1"
+            ],
+            "modelUrl": "/models/distributed-microservices/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "analogue",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "chassis-frame",
+                    "name": "Rack-Mount Server Enclosure",
+                    "hotspotPosition": "-0.002m 0.240m 0.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "case_body",
+                    "explanation": "Industrial sheet steel chassis housing distributed microservice server blades, compute partitions, and network routing fabric.",
+                    "formulaOrLaw": "Availability Equation: A = MTBF / (MTBF + MTTR)"
+                },
+                {
+                    "id": "front-fans",
+                    "name": "High-CFM Hot-Swap Cooling Array",
+                    "hotspotPosition": "0.200m 0.125m 0.002m",
+                    "hotspotNormal": "1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_fan_front_1",
+                    "explanation": "Redundant axial fan assembly maintaining thermal equilibrium across high-density cloud cluster compute nodes.",
+                    "formulaOrLaw": "Fan Affinity Laws: Flow Q2/Q1 = N2/N1, Power P2/P1 = (N2/N1)^3"
+                },
+                {
+                    "id": "motherboard-tray",
+                    "name": "Microservice Server Blade Tray",
+                    "hotspotPosition": "-0.088m 0.292m -0.084m",
+                    "hotspotNormal": "0m 0m -1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_motherboard",
+                    "explanation": "Structural tray mounting individual service containers, service discovery routers, and consensus state machines.",
+                    "formulaOrLaw": "CAP Theorem: Consistency + Availability + Partition Tolerance"
+                },
+                {
+                    "id": "power-bay",
+                    "name": "Redundant Power Supply Bay",
+                    "hotspotPosition": "-0.150m 0.063m -0.005m",
+                    "hotspotNormal": "-1m -1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_psu",
+                    "explanation": "Dual N+1 hot-pluggable power distribution bay ensuring continuous uptime during cloud microservice rolling deployments.",
+                    "formulaOrLaw": "Power Efficiency: PUE = Total_Facility_Power / IT_Equipment_Power"
+                },
+                {
+                    "id": "expansion-slots",
+                    "name": "PCIe Cluster Fabric Interconnect",
+                    "hotspotPosition": "-0.224m 0.267m 0.000m",
+                    "hotspotNormal": "-1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_slot_1",
+                    "explanation": "High-throughput network interface bays for RoCE (RDMA over Converged Ethernet) and low-latency microservice RPC routing.",
+                    "formulaOrLaw": "Little's Law: Concurrency L = Arrival_Rate lambda * Response_Time W"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "gpu-architecture",
+            "name": "GPU Microarchitecture & SIMT Cores",
+            "description": "Examine Streaming Multiprocessors, warp scheduling, coalesced memory access, and tensor core matrix accelerators.",
+            "discipline": "AI & Hardware Engineering",
+            "subfield": "Parallel Computing",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "gpu",
+                "cuda",
+                "simt",
+                "parallel-computing"
+            ],
+            "prerequisites": [
+                "Computer Architecture",
+                "Linear Algebra"
+            ],
+            "equationsCovered": [
+                "Amdahl's Law Speedup S = 1 / ((1 - p) + p/s)",
+                "Little's Law for GPU Occupancy",
+                "Matrix MAC FLOPS = 2 * M * N * K"
+            ],
+            "modelUrl": "/models/gpu-architecture/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "pcie-bracket",
+                    "name": "PCIe Host Bus & Retention Bracket",
+                    "hotspotPosition": "-0.076m -0.017m 0.120m",
+                    "hotspotNormal": "-1m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_bracket_screw",
+                    "explanation": "High-speed PCIe 4.0/5.0 x16 host interface transmitting instruction commands and vertex buffers directly into GPU front-end schedulers.",
+                    "formulaOrLaw": "PCIe 5.0 Bandwidth: 32 GT/s per lane, 64 GB/s bidirectional"
+                },
+                {
+                    "id": "gpu-die-heatsink",
+                    "name": "GPU Compute Silicon & Heatsink",
+                    "hotspotPosition": "0.065m -0.020m 0.054m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "gpu_body",
+                    "explanation": "High-density silicon die housing thousands of SIMD/SIMT ALU cores, warp schedulers, and L2 cache under dense aluminum cooling fins.",
+                    "formulaOrLaw": "Roofline Model: Performance = min(Peak_GFLOPS, Operational_Intensity * BW)"
+                },
+                {
+                    "id": "fan-1",
+                    "name": "Primary Axial Cooling Fan",
+                    "hotspotPosition": "0.010m -0.040m 0.068m",
+                    "hotspotNormal": "0m -1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "gpu_fan_rotor_1",
+                    "explanation": "Precision curved-blade rotor forcing ambient airflow through dense micro-fin arrays to cool streaming multiprocessor silicon.",
+                    "formulaOrLaw": "Heat Transfer Rate: q = h * A * (T_surface - T_fluid)"
+                },
+                {
+                    "id": "fan-2",
+                    "name": "Secondary Axial Cooling Fan",
+                    "hotspotPosition": "0.126m -0.040m 0.068m",
+                    "hotspotNormal": "0m -1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "gpu_fan_rotor_2",
+                    "explanation": "Synchronized secondary fan dedicated to cooling high-bandwidth GDDR6/HBM memory stacks and power delivery VRMs.",
+                    "formulaOrLaw": "Bernoulli's Principle for Airflow: P + 0.5 * rho * v^2 = constant"
+                },
+                {
+                    "id": "power-connector",
+                    "name": "High-Current Power Delivery Infeed",
+                    "hotspotPosition": "0.138m -0.006m 0.122m",
+                    "hotspotNormal": "1m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_gpu_power",
+                    "explanation": "8-pin / 12VHPWR connector supplying up to 450W of continuous DC current through multiphase buck regulators to the GPU core.",
+                    "formulaOrLaw": "Joule Heating Power: P_dissipated = I^2 * R"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "transformer-attention",
+            "name": "Transformer Attention & Neural Architectures",
+            "description": "Understand multi-head self-attention, query-key-value dot products, layer normalization, and residual neural highways.",
+            "discipline": "Artificial Intelligence",
+            "subfield": "Deep Learning & NLP",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "ai",
+                "transformers",
+                "attention",
+                "deep-learning"
+            ],
+            "prerequisites": [
+                "Linear Algebra",
+                "Deep Learning Basics"
+            ],
+            "equationsCovered": [
+                "Attention(Q,K,V) = softmax(Q*K^T / sqrt(d_k)) * V",
+                "MultiHead(Q,K,V) = Concat(head_1...head_h) * W^O"
+            ],
+            "modelUrl": "/models/transformer-attention/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "analogue",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "tensor-die",
+                    "name": "Tensor Core Silicon Compute Engine",
+                    "hotspotPosition": "0.065m -0.020m 0.054m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "gpu_body",
+                    "explanation": "Dedicated mixed-precision matrix multiply-accumulate (MMA) tensor hardware executing scaled dot-product attention queries and keys.",
+                    "formulaOrLaw": "Attention Formula: Attention(Q, K, V) = softmax(Q * K^T / sqrt(d_k)) * V"
+                },
+                {
+                    "id": "hbm-memory-bus",
+                    "name": "High-Bandwidth VRAM KV-Cache Buffer",
+                    "hotspotPosition": "0.138m -0.006m 0.122m",
+                    "hotspotNormal": "1m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_gpu_power",
+                    "explanation": "Ultra-wide memory subsystem storing multi-gigabyte Key-Value (KV) attention caches across autoregressive token generation passes.",
+                    "formulaOrLaw": "KV Cache Memory: Mem_KV = 2 * 2 * n_layers * n_heads * d_head * seq_len"
+                },
+                {
+                    "id": "pcie-stream-bridge",
+                    "name": "Token Embedding Host Interconnect",
+                    "hotspotPosition": "-0.076m -0.017m 0.120m",
+                    "hotspotNormal": "-1m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_bracket_screw",
+                    "explanation": "High-throughput DMA bus streaming high-dimensional token embeddings from host memory directly into attention projection layers.",
+                    "formulaOrLaw": "Token Throughput: Tokens/sec = Batch_Size * Clock_Frequency / Latency_per_Layer"
+                },
+                {
+                    "id": "primary-fan-thermal",
+                    "name": "Primary Thermal Dissipation Shroud",
+                    "hotspotPosition": "0.010m -0.040m 0.068m",
+                    "hotspotNormal": "0m -1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "gpu_fan_rotor_1",
+                    "explanation": "Active cooling system stabilizing junction temperatures during continuous multi-head self-attention training passes.",
+                    "formulaOrLaw": "Thermal Resistance Model: T_J = T_A + P_D * (R_theta_JC + R_theta_CS + R_theta_SA)"
+                },
+                {
+                    "id": "secondary-fan-thermal",
+                    "name": "Secondary Thermal VRM Airflow",
+                    "hotspotPosition": "0.126m -0.040m 0.068m",
+                    "hotspotNormal": "0m -1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "gpu_fan_rotor_2",
+                    "explanation": "Exhaust fan cooling voltage regulator modules during peak FP16/BF16 matrix multiplication bursts.",
+                    "formulaOrLaw": "Matrix Multiply Compute Complexity: FLOPs = 2 * M * N * K"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "cpu-architecture",
+            "name": "5-Stage RISC-V Pipeline Architecture",
+            "description": "Trace instruction execution through the classic 5-stage RISC pipeline: Fetch, Decode, Execute, Memory, and Writeback.",
+            "discipline": "Computer Architecture",
+            "subfield": "Microprocessor Design",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "risc-v",
+                "cpu",
+                "pipeline",
+                "branch-prediction"
+            ],
+            "prerequisites": [
+                "Digital Logic",
+                "Computer Organization"
+            ],
+            "equationsCovered": [
+                "CPU Time = IC * CPI * Clock_Period",
+                "Pipeline Speedup S = k / (1 + stalls)"
+            ],
+            "modelUrl": "/models/cpu-architecture/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "ihs-spreader",
+                    "name": "Integrated Heat Spreader (IHS)",
+                    "hotspotPosition": "0.000m 0.000m 0.005m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_ihs_top",
+                    "explanation": "Copper nickel-plated heat spreader protecting delicate silicon dies and providing uniform heat spreading to heatsinks.",
+                    "formulaOrLaw": "Fourier's Law of Heat Conduction: q = -k * dT/dx"
+                },
+                {
+                    "id": "silicon-die-core",
+                    "name": "Microprocessor Silicon Core Region",
+                    "hotspotPosition": "0.000m 0.000m 0.003m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "cpu_body",
+                    "explanation": "Contains the 5-stage RISC instruction pipeline: Instruction Fetch (IF), Decode (ID), Execute (EX), Memory (MEM), and Write-back (WB).",
+                    "formulaOrLaw": "Classic CPU Performance Equation: Time = Instructions * CPI * Clock_Cycle_Time"
+                },
+                {
+                    "id": "pin-1-key",
+                    "name": "Pin 1 Alignment Triangle Key",
+                    "hotspotPosition": "-0.018m -0.018m 0.001m",
+                    "hotspotNormal": "-1m -1m 1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_triangle",
+                    "explanation": "Gold-etched corner marker matching socket alignment tabs to guarantee proper physical orientation during CPU installation.",
+                    "formulaOrLaw": "JEDEC Microprocessor Socket Specification"
+                },
+                {
+                    "id": "organic-substrate",
+                    "name": "Multilayer Package Substrate",
+                    "hotspotPosition": "0.015m 0.015m 0.002m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "cpu_body",
+                    "explanation": "Dense fiberglass/copper composite substrate routing hundreds of sub-micron signals between silicon micro-bumps and socket pads.",
+                    "formulaOrLaw": "Signal Propagation Delay: t_d = sqrt(epsilon_r) / c"
+                },
+                {
+                    "id": "lga-contacts",
+                    "name": "Land Grid Array (LGA) Contact Array",
+                    "hotspotPosition": "0.000m 0.000m -0.002m",
+                    "hotspotNormal": "0m 0m -1m",
+                    "explodeOffset": null,
+                    "partNode": "cpu_body",
+                    "explanation": "Over 1,700 gold-plated planar pads on the underside that mate with socket spring pins for power rails and bus lines.",
+                    "formulaOrLaw": "Contact Force & Resistance: R_contact = rho / (2 * a)"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "ai-server-rack",
+            "name": "High-Density AI Supercomputing Rack",
+            "description": "Examine liquid cooling loops, 8-GPU compute nodes, 800Gbps InfiniBand fabrics, and 48V power distribution.",
+            "discipline": "Cloud Infrastructure",
+            "subfield": "Data Center & HPC Engineering",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "datacenter",
+                "hpc",
+                "thermal-management",
+                "networking"
+            ],
+            "prerequisites": [
+                "Computer Systems",
+                "Thermodynamics"
+            ],
+            "equationsCovered": [
+                "Power Usage Effectiveness PUE = Total_Facility_Energy / IT_Energy",
+                "Heat Transfer Q = m_dot * Cp * Delta_T"
+            ],
+            "modelUrl": "/models/ai-server-rack/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "server-chassis",
+                    "name": "Heavy-Duty Server Enclosure",
+                    "hotspotPosition": "-0.002m 0.240m 0.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "case_body",
+                    "explanation": "42U-compatible high-rigidity structural steel enclosure designed for multi-kilowatt AI compute nodes and liquid cooling loops.",
+                    "formulaOrLaw": "Structural Deflection Under Load: delta = (F * L^3) / (48 * E * I)"
+                },
+                {
+                    "id": "high-cfm-fans",
+                    "name": "Dual-Rotor High-CFM Fan Matrix",
+                    "hotspotPosition": "0.200m 0.125m 0.002m",
+                    "hotspotNormal": "1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_fan_front_1",
+                    "explanation": "Counter-rotating high-pressure cooling fans pulling up to 300 CFM of chilled air through high-density GPU accelerators.",
+                    "formulaOrLaw": "Fan Static Pressure Curve: Delta_P = rho * (v2^2 - v1^2) / 2"
+                },
+                {
+                    "id": "gpu-chassis-tray",
+                    "name": "High-Density GPU Accelerator Tray",
+                    "hotspotPosition": "-0.088m 0.292m -0.084m",
+                    "hotspotNormal": "0m 0m -1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_motherboard",
+                    "explanation": "Vibration-damped sliding tray supporting 8x SXM / PCIe tensor accelerator cards interconnected via high-speed NVLink mesh.",
+                    "formulaOrLaw": "Total System Power: P_total = N_GPU * P_GPU + P_CPU + P_cooling"
+                },
+                {
+                    "id": "power-distribution",
+                    "name": "3000W Redundant Power Supply (PSU)",
+                    "hotspotPosition": "-0.150m 0.063m -0.005m",
+                    "hotspotNormal": "-1m -1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_psu",
+                    "explanation": "Titanium-rated 96% efficiency modular power supplies providing 12V/48V busbar power directly to accelerator baseboards.",
+                    "formulaOrLaw": "Power Supply Efficiency: eta = P_out / P_in"
+                },
+                {
+                    "id": "front-io-panel",
+                    "name": "Diagnostic & Telemetry I/O Interface",
+                    "hotspotPosition": "0.194m 0.470m -0.100m",
+                    "hotspotNormal": "1m 1m -1m",
+                    "explodeOffset": null,
+                    "partNode": "anchor_front_io",
+                    "explanation": "Front panel management console reporting thermal sensor metrics, fan RPMs, power draw, and BMC hardware health.",
+                    "formulaOrLaw": "IPMI / Redfish Management Standard Interface"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "induction-motor",
+            "name": "3-Phase AC Induction Motor",
+            "description": "Analyze rotating magnetic fields, squirrel-cage rotors, slip dynamics, and torque-speed characteristics.",
+            "discipline": "Electrical Machines",
+            "subfield": "Electromagnetics & Power Systems",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "motors",
+                "electromagnetics",
+                "ac-power",
+                "torque"
+            ],
+            "prerequisites": [
+                "Electromagnetism",
+                "AC Circuit Theory"
+            ],
+            "equationsCovered": [
+                "Synchronous Speed N_s = 120 * f / P",
+                "Slip s = (N_s - N) / N_s",
+                "Electromagnetic Torque T = (3*V^2 * R2/s) / (omega_s * ((R1 + R2/s)^2 + (X1 + X2)^2))"
+            ],
+            "modelUrl": "/models/induction-motor/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "stator-windings",
+                    "name": "Stator Core & 3-Phase Copper Windings",
+                    "hotspotPosition": "10.000m 0.000m -25.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "Zigzag_Circular_Object",
+                    "explanation": "Laminated silicon steel stator housing balanced three-phase windings that create a constant-magnitude rotating magnetic field.",
+                    "formulaOrLaw": "Rotating Field Speed: N_sync = (120 * f) / P"
+                },
+                {
+                    "id": "rotor-shaft",
+                    "name": "Squirrel-Cage Rotor & Drive Shaft",
+                    "hotspotPosition": "90.000m 0.000m -25.000m",
+                    "hotspotNormal": "1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "Box",
+                    "explanation": "Heavy steel output shaft carrying conductive rotor bars where currents are induced to generate mechanical electromagnetic torque.",
+                    "formulaOrLaw": "Rotor Slip: s = (N_sync - N_rotor) / N_sync"
+                },
+                {
+                    "id": "cast-iron-frame",
+                    "name": "Cast Iron Protective Motor Housing",
+                    "hotspotPosition": "-30.000m 0.000m -25.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "Box",
+                    "explanation": "Rigid ribbed enclosure providing mechanical protection, structural bearing alignment, and external cooling heat dissipation.",
+                    "formulaOrLaw": "Electromagnetic Torque: T = (3 * V^2 * R_2 / s) / (omega_s * ((R_1 + R_2/s)^2 + (X_1 + X_2)^2))"
+                },
+                {
+                    "id": "cooling-fan-cowl",
+                    "name": "External Cooling Fan Shroud",
+                    "hotspotPosition": "-60.000m 0.000m -25.000m",
+                    "hotspotNormal": "-1m 0m 0m",
+                    "explodeOffset": null,
+                    "partNode": "Half_of_Thin_Torus",
+                    "explanation": "Totally Enclosed Fan Cooled (TEFC) aerodynamic cowl directing cooling airflow over external frame heat-dissipation fins.",
+                    "formulaOrLaw": "Convective Cooling Rate: Q = h * A * Delta_T"
+                },
+                {
+                    "id": "terminal-junction-box",
+                    "name": "Electrical Terminal Junction Box",
+                    "hotspotPosition": "10.000m 40.000m -25.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "Torus_1",
+                    "explanation": "Weatherproof terminal box for Star (Y) or Delta (Delta) connection of three-phase 400V AC power leads.",
+                    "formulaOrLaw": "Delta-Star Conversion: V_line = sqrt(3) * V_phase"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "four-stroke-engine",
+            "name": "Four-Stroke Internal Combustion Engine",
+            "description": "Examine the Otto cycle: Intake, Compression, Power, and Exhaust strokes, reciprocating kinematics, and thermodynamics.",
+            "discipline": "Mechanical Engineering",
+            "subfield": "Thermodynamics & Automotive",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "thermodynamics",
+                "automotive",
+                "combustion",
+                "mechanics"
+            ],
+            "prerequisites": [
+                "Engineering Thermodynamics",
+                "Kinematics of Machinery"
+            ],
+            "equationsCovered": [
+                "Otto Cycle Thermal Efficiency eta = 1 - 1 / r^(gamma - 1)",
+                "Indicated Mean Effective Pressure IMEP",
+                "Brake Power P = 2*pi * N * T / 60"
+            ],
+            "modelUrl": "/models/four-stroke-engine/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": false,
+            "animation": "2CylinderEngine",
+            "parts": [
+                {
+                    "id": "cylinder-block",
+                    "name": "Cylinder Block & Bore",
+                    "hotspotPosition": "-60.000m 220.000m -40.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": "0m 0.08m 0m",
+                    "partNode": "Block",
+                    "explanation": "Heavy cast engine block containing precision-honed cylinder sleeves where combustion pressures drive piston strokes.",
+                    "formulaOrLaw": "Engine Displacement: V_d = (pi / 4) * Bore^2 * Stroke * N_cyl"
+                },
+                {
+                    "id": "piston-assembly",
+                    "name": "Reciprocating Piston Assembly",
+                    "hotspotPosition": "-60.000m 140.000m -40.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": "0m 0.05m 0m",
+                    "partNode": "Pistons",
+                    "explanation": "Lightweight aluminum piston crowns sealing combustion gases with compression rings to transmit gas expansion force.",
+                    "formulaOrLaw": "Gas Force: F_piston = P_combustion * A_piston"
+                },
+                {
+                    "id": "crankshaft",
+                    "name": "Counterweighted Crankshaft",
+                    "hotspotPosition": "-60.000m -120.000m -40.000m",
+                    "hotspotNormal": "0m -1m 0m",
+                    "explodeOffset": "0m -0.05m 0m",
+                    "partNode": "Crankshaft",
+                    "explanation": "Forged steel eccentric shaft converting reciprocating linear piston motion into continuous rotational brake torque.",
+                    "formulaOrLaw": "Brake Power: P_b = 2 * pi * N * Torque / 60000"
+                },
+                {
+                    "id": "intake-exhaust-valves",
+                    "name": "Overhead Intake & Exhaust Valves",
+                    "hotspotPosition": "-60.000m 350.000m -40.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": "0m 0.12m 0m",
+                    "partNode": "Valves",
+                    "explanation": "Poppet valves actuated by overhead camshafts controlling fuel-air intake and exhaust scavenging during the 4-stroke cycle.",
+                    "formulaOrLaw": "Otto Cycle Efficiency: eta = 1 - (1 / r^(gamma - 1))"
+                },
+                {
+                    "id": "connecting-rods",
+                    "name": "Forged Steel Connecting Rods",
+                    "hotspotPosition": "-60.000m 0.000m -40.000m",
+                    "hotspotNormal": "1m 0m 0m",
+                    "explodeOffset": "0.05m 0m 0m",
+                    "partNode": "Rods",
+                    "explanation": "H-beam connecting rods linking piston wrist pins to crankpin journals under alternating tension and compression.",
+                    "formulaOrLaw": "Rod Stress: sigma = F_max / A_cross_section"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "turbofan-jet",
+            "name": "High-Bypass Turbofan Jet Engine",
+            "description": "Examine gas turbine propulsion: multi-spool compressors, combustion chambers, expansion turbines, and bypass thrust mechanics.",
+            "discipline": "Aerospace Engineering",
+            "subfield": "Gas Turbines & Propulsion",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "propulsion",
+                "turbofan",
+                "aerodynamics",
+                "thermodynamics"
+            ],
+            "prerequisites": [
+                "Compressible Fluid Dynamics",
+                "Thermodynamics"
+            ],
+            "equationsCovered": [
+                "Brayton Cycle Thermal Efficiency",
+                "Total Thrust F = m_dot_core*v_core + m_dot_bypass*v_bypass - m_dot_total*v_flight",
+                "Bypass Ratio BPR = m_dot_bypass / m_dot_core"
+            ],
+            "modelUrl": "/models/turbofan-jet/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": false,
+            "animation": "saturnv_caAction",
+            "parts": [
+                {
+                    "id": "propulsion-nozzles",
+                    "name": "F-1 High-Thrust Propulsion Rocket Engines",
+                    "hotspotPosition": "0.000m 0.200m 0.700m",
+                    "hotspotNormal": "0m -1m 0m",
+                    "explodeOffset": "0m -0.08m 0m",
+                    "partNode": "F1Nozzles",
+                    "explanation": "Gimbaled convergent-divergent supersonic de Laval nozzles expanding high-pressure combustion exhaust gases to produce 34 MN thrust.",
+                    "formulaOrLaw": "Thrust Equation: F = m_dot * v_e + (p_e - p_0) * A_e"
+                },
+                {
+                    "id": "fuel-oxidizer-tanks",
+                    "name": "RP-1 Fuel & Liquid Oxygen Propellant Tanks",
+                    "hotspotPosition": "0.000m 3.000m 0.700m",
+                    "hotspotNormal": "1m 0m 0m",
+                    "explodeOffset": "0m 0.05m 0m",
+                    "partNode": "PropellantTanks",
+                    "explanation": "Cryogenic thin-wall aluminum alloy propellant tanks feeding high-pressure turbopumps at 13,000 liters per second.",
+                    "formulaOrLaw": "Tsiolkovsky Rocket Equation: Delta_v = I_sp * g_0 * ln(m_0 / m_f)"
+                },
+                {
+                    "id": "fuselage-interstage",
+                    "name": "Interstage Structural Separation Ring",
+                    "hotspotPosition": "0.000m 6.000m 0.700m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": "0m 0.10m 0m",
+                    "partNode": "Interstage",
+                    "explanation": "Corrugated skin-stringer cylindrical structure transmitting compressive launch loads between booster stages before explosive separation.",
+                    "formulaOrLaw": "Euler Buckling Load: P_cr = (pi^2 * E * I) / (K * L)^2"
+                },
+                {
+                    "id": "upper-stages-avionics",
+                    "name": "Instrument Unit & Guidance Avionics",
+                    "hotspotPosition": "0.000m 9.500m 0.700m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": "0m 0.15m 0m",
+                    "partNode": "InstrumentUnit",
+                    "explanation": "Ring-shaped autonomous guidance computer containing gyroscopes and accelerometers computing real-time trajectory steering corrections.",
+                    "formulaOrLaw": "Orbital Velocity: v = sqrt(G * M / r)"
+                },
+                {
+                    "id": "aerodynamic-fins",
+                    "name": "Aerodynamic Stabilizer Fins & Fairings",
+                    "hotspotPosition": "0.000m 12.200m 0.700m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": "0m 0.20m 0m",
+                    "partNode": "EscapeTower",
+                    "explanation": "Titanium-faced external fins providing passive aerodynamic stability and center-of-pressure control during atmospheric ascent.",
+                    "formulaOrLaw": "Aerodynamic Lift Force: L = 0.5 * rho * v^2 * S * C_L"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "differential-gearbox",
+            "name": "Automotive Differential Gearbox",
+            "description": "Examine open differentials: hypoid ring-pinion gears, spider planetary pinions, and torque split during cornering.",
+            "discipline": "Mechanical Engineering",
+            "subfield": "Kinematics & Automotive Drivetrains",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "gears",
+                "drivetrain",
+                "kinematics",
+                "torque-distribution"
+            ],
+            "prerequisites": [
+                "Mechanics of Machines",
+                "Machine Design"
+            ],
+            "equationsCovered": [
+                "Kinematic Average omega_carrier = (omega_left + omega_right) / 2",
+                "Gear Ratio N_ring / N_pinion",
+                "Torque Split 50/50"
+            ],
+            "modelUrl": "/models/differential-gearbox/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": false,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "input-pinion-shaft",
+                    "name": "Input Drive Pinion Shaft",
+                    "hotspotPosition": "1.200m 0.300m -2.000m",
+                    "hotspotNormal": "0m 0m -1m",
+                    "explodeOffset": "0m 0m -0.06m",
+                    "partNode": "InputShaft",
+                    "explanation": "Hypoid spiral bevel pinion transferring torque from the vehicle driveshaft into the differential ring gear at right angles.",
+                    "formulaOrLaw": "Gear Ratio: i = Z_ring / Z_pinion"
+                },
+                {
+                    "id": "differential-cage",
+                    "name": "Differential Carrier Cage Assembly",
+                    "hotspotPosition": "1.200m 0.300m 5.500m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": "0m 0.05m 0m",
+                    "partNode": "Cage",
+                    "explanation": "Rigid cast casing rotating with the crown wheel and housing the planetary pinions and cross-pin shafts.",
+                    "formulaOrLaw": "Carrier Speed Equation: omega_carrier = (omega_left + omega_right) / 2"
+                },
+                {
+                    "id": "planetary-bevel-gears",
+                    "name": "Planetary Bevel Pinions",
+                    "hotspotPosition": "3.000m 0.300m 5.500m",
+                    "hotspotNormal": "1m 0m 0m",
+                    "explodeOffset": "0.06m 0m 0m",
+                    "partNode": "PlanetaryPinions",
+                    "explanation": "Free-spinning bevel gears allowing outer wheels to rotate faster than inner wheels during cornering maneuvers.",
+                    "formulaOrLaw": "Lewis Bending Formula: sigma = (F_t) / (b * m * Y)"
+                },
+                {
+                    "id": "sun-gears-axles",
+                    "name": "Axle Sun Gears & Half-Shafts",
+                    "hotspotPosition": "-1.000m 0.300m 5.500m",
+                    "hotspotNormal": "-1m 0m 0m",
+                    "explodeOffset": "-0.06m 0m 0m",
+                    "partNode": "SunGears",
+                    "explanation": "Splined bevel side gears delivering equalized torque to left and right drive wheels across varying wheel velocities.",
+                    "formulaOrLaw": "Torque Balance: T_left = T_right = 0.5 * T_ring"
+                },
+                {
+                    "id": "housing-bearings",
+                    "name": "Structural Housing & Tapered Roller Bearings",
+                    "hotspotPosition": "1.200m 4.000m 5.500m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": "0m 0.10m 0m",
+                    "partNode": "Housing",
+                    "explanation": "Cast iron axle housing preloading bearings to resist separating forces generated by hypoid gear teeth.",
+                    "formulaOrLaw": "Bearing Life Equation: L_10 = (C / P)^p * 10^6 revolutions"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "truss-bridge",
+            "name": "Warren Truss Structural Bridge",
+            "description": "Analyze structural statics: equilateral triangular trusses, tension/compression members, method of joints, and buckling limits.",
+            "discipline": "Civil Engineering",
+            "subfield": "Structural Analysis & Statics",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "civil",
+                "structures",
+                "statics",
+                "truss"
+            ],
+            "prerequisites": [
+                "Engineering Mechanics (Statics)",
+                "Strength of Materials"
+            ],
+            "equationsCovered": [
+                "Static Determinacy m = 2*j - 3",
+                "Method of Joints Sum_F = 0",
+                "Euler's Critical Buckling Load P_cr = (pi^2 * E * I) / (K * L)^2"
+            ],
+            "modelUrl": "/models/truss-bridge/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": true,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "upper-chord",
+                    "name": "Upper Horizontal Compression Chords",
+                    "hotspotPosition": "0.000m 15.000m 0.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "UpperChord",
+                    "explanation": "Continuous longitudinal structural members resisting bending moments through axial compression across the upper truss boundary.",
+                    "formulaOrLaw": "Euler Column Buckling: P_cr = (pi^2 * E * I) / (K * L)^2"
+                },
+                {
+                    "id": "lower-chord",
+                    "name": "Lower Horizontal Tension Chords",
+                    "hotspotPosition": "0.000m 2.000m 0.000m",
+                    "hotspotNormal": "0m -1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "LowerChord",
+                    "explanation": "Tension members carrying tensile loads from vehicle and deck dead loads across the bridge span between foundation piers.",
+                    "formulaOrLaw": "Tensile Stress: sigma = F_tension / A_cross_section <= sigma_allowable"
+                },
+                {
+                    "id": "diagonal-bracing",
+                    "name": "Diagonal Truss Web Cross-Braces",
+                    "hotspotPosition": "5.000m 8.000m 3.000m",
+                    "hotspotNormal": "1m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "Diagonals",
+                    "explanation": "Triangulated structural members transmitting vertical shear forces along the bridge span using alternating tension and compression.",
+                    "formulaOrLaw": "Method of Joints: Sum F_x = 0, Sum F_y = 0"
+                },
+                {
+                    "id": "vertical-posts",
+                    "name": "Vertical Compression & Tension Posts",
+                    "hotspotPosition": "-5.000m 8.000m -3.000m",
+                    "hotspotNormal": "-1m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "VerticalPosts",
+                    "explanation": "Vertical structural members connecting panel points to stabilize chords against lateral buckling under eccentric point loads.",
+                    "formulaOrLaw": "Slenderness Ratio: lambda = K * L / r"
+                },
+                {
+                    "id": "gantry-load-beam",
+                    "name": "Gantry Carriage & Deck Support Beam",
+                    "hotspotPosition": "0.000m 12.000m 0.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "GantryBeam",
+                    "explanation": "Heavy-duty transverse beam assembly distributing live vehicle traffic and crane wheel loads directly into truss panel joints.",
+                    "formulaOrLaw": "Bending Moment Formula: M_max = (w * L^2) / 8 + (P * L) / 4"
+                }
+            ],
+            "status": "ready"
+        },
+        {
+            "id": "robotic-arm",
+            "name": "6-DOF Articulated Robotic Arm",
+            "description": "Examine forward/inverse kinematics, Denavit-Hartenberg parameters, harmonic drive reducers, and spherical wrists.",
+            "discipline": "Mechatronics & Robotics",
+            "subfield": "Robotics & Automation",
+            "academicLevel": "Undergraduate",
+            "tags": [
+                "robotics",
+                "kinematics",
+                "mechatronics",
+                "actuators"
+            ],
+            "prerequisites": [
+                "Linear Algebra",
+                "Mechatronics"
+            ],
+            "equationsCovered": [
+                "Denavit-Hartenberg (DH) Transformation Matrix T",
+                "Manipulator Jacobian J = [J_v; J_omega]",
+                "Torque Equilibrium tau = J^T * F"
+            ],
+            "modelUrl": "/models/robotic-arm/model.glb",
+            "modelFormat": "glb",
+            "modelSource": "cad",
+            "autoRotate": false,
+            "animation": null,
+            "parts": [
+                {
+                    "id": "shoulder-joint",
+                    "name": "Shoulder Yaw & Pitch Joint",
+                    "hotspotPosition": "0.000m 0.000m 0.000m",
+                    "hotspotNormal": "0m 1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "Shoulder",
+                    "explanation": "Dual-axis motorized gimbal joint providing azimuth rotation and elevation pitch relative to the base platform.",
+                    "formulaOrLaw": "Denavit-Hartenberg (D-H) Transformation Matrix: T_i-1_i"
+                },
+                {
+                    "id": "upper-arm-boom",
+                    "name": "Carbon-Composite Upper Arm Boom",
+                    "hotspotPosition": "0.000m -150.000m 0.000m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "UpperArm",
+                    "explanation": "Ultralight structural carbon-fiber tubular boom maintaining stiffness while minimizing rotational inertia during maneuvers.",
+                    "formulaOrLaw": "Moment of Inertia: I = 0.5 * m * (r_outer^2 + r_inner^2)"
+                },
+                {
+                    "id": "elbow-joint",
+                    "name": "Articulated Pitch Elbow Joint",
+                    "hotspotPosition": "0.000m -300.000m 0.000m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "Elbow",
+                    "explanation": "High-torque planetary gearbox joint extending and retracting the reach envelope with 160 degrees of planar articulation.",
+                    "formulaOrLaw": "Forward Kinematics: [x, y, z]^T = f(theta_1, theta_2, ..., theta_6)"
+                },
+                {
+                    "id": "wrist-joint",
+                    "name": "3-DOF Wrist Assembly (Roll / Pitch / Yaw)",
+                    "hotspotPosition": "0.000m -450.000m 0.000m",
+                    "hotspotNormal": "0m 0m 1m",
+                    "explodeOffset": null,
+                    "partNode": "Wrist",
+                    "explanation": "Compact 3-axis spherical wrist assembly aligning end-effector orientation arbitrarily in 6-dimensional SE(3) task space.",
+                    "formulaOrLaw": "Jacobian Velocity Mapping: v = J(theta) * dot_theta"
+                },
+                {
+                    "id": "end-effector",
+                    "name": "Grapple End-Effector Mechanism",
+                    "hotspotPosition": "0.000m -570.000m 0.000m",
+                    "hotspotNormal": "0m -1m 0m",
+                    "explodeOffset": null,
+                    "partNode": "EndEffector",
+                    "explanation": "Snare-wire mechanism capturing orbital payloads, satellite grapple fixtures, and International Space Station modules.",
+                    "formulaOrLaw": "Inverse Kinematics: theta = J^+ * Delta_x"
+                }
+            ],
+            "status": "ready"
+        }
+    ]
+}

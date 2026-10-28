@@ -1,0 +1,8 @@
+Topic: Solar System Orbital Mechanics & Solar Heliophysics (Parker Solar Probe)
+Origin: NASA 3D Resources
+Source URL: https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Parker%20Solar%20Probe
+Licence: Public Domain (United States Government work)
+Author / Copyright: National Aeronautics and Space Administration (NASA) / JHUAPL
+Commercial Use: Allowed (NASA Open Data & Media Guidelines)
+Real object or analogue: Real physical NASA solar exploration spacecraft
+Format: glTF 2.0 Binary (.glb)

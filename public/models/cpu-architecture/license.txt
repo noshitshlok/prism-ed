@@ -1,0 +1,8 @@
+Topic: CPU Architecture, 5-Stage Pipeline & Microarchitecture
+Origin: Wissemm697/pc-builder
+Source URL: https://github.com/Wissemm697/pc-builder/tree/main/models
+Licence: MIT License
+Author / Copyright: Wissemm697 & Contributors
+Commercial Use: Allowed (MIT License)
+Real object or analogue: Real physical modern CPU microprocessor chip
+Format: glTF 2.0 Binary (.glb)

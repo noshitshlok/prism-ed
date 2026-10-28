@@ -1,0 +1,15 @@
+.hotspot {
+    background: #4f8cff;
+    color: white;
+    border: none;
+    border-radius: 999px;
+    padding: 6px 12px;
+    font-size: 0.75rem;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    white-space: nowrap;
+}
+
+.hotspot.active {
+    background: #ff6b6b;
+}

@@ -1,0 +1,8 @@
+Topic: Human Heart Anatomy & Circulation
+Origin: NIH 3D Print Exchange (Visible Human Project, ID: 3DPX-021000)
+Source URL: https://3d.nih.gov/entries/3DPX-021000
+Licence: Creative Commons Attribution 4.0 International (CC-BY 4.0)
+Author / Copyright: National Institutes of Health (NIH) & Visible Human Project
+Commercial Use: Allowed with attribution
+Real object or analogue: Real physical anatomical heart scan
+Format: glTF 2.0 Binary (.glb)

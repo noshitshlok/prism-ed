@@ -1,0 +1,58 @@
+:root {
+  /* 2.1 Colours */
+  --bench-900: #14110F;
+  --bench-800: #1E1A17;
+  --paper-100: #F4EDE1;
+  --paper-300: #CFC4B3;
+  --paper-500: #8F8576;
+  --amber: #E8A33D;
+  --teal: #3FB8A6;
+  --coral: #E4675B;
+  --violet-soft: #9C8CD0;
+  --sky: #6FA8DC;
+  --moss: #8DBB6A;
+
+  /* 2.2 Glass Surfaces */
+  --glass-fill: rgba(30, 26, 23, 0.62);
+  --glass-fill-strong: rgba(30, 26, 23, 0.78);
+  --glass-border-color: rgba(244, 237, 225, 0.10);
+  --glass-border: 1px solid var(--glass-border-color);
+  --glass-highlight: inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  --glass-shadow: 0 24px 48px -16px rgba(0, 0, 0, 0.55);
+  --glass-blur: blur(18px) saturate(140%);
+
+  /* Radius */
+  --radius-panel: 20px;
+  --radius-control: 14px;
+  --radius-pill: 999px;
+
+  /* 2.3 Typography */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Newsreader', serif;
+  --font-ui: 'IBM Plex Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  /* Spacing */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+
+  /* Spectrum Rule Gradient */
+  --spectrum-gradient: linear-gradient(90deg, #3FB8A6 0%, #E8A33D 33%, #E4675B 66%, #6FA8DC 100%);
+
+  /* Transitions */
+  --transition-fast: 200ms ease-out;
+  --transition-panel: 360ms ease-out;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --transition-fast: 0ms !important;
+    --transition-panel: 0ms !important;
+  }
+}

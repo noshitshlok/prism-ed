@@ -1,0 +1,8 @@
+Topic: Circuit Board Basics (Printed Circuit Board)
+Origin: Sketchfab (Rowan Design)
+Source URL: https://sketchfab.com/3d-models/circuit-board-free-download-95a287a99f1847648353b379373cf586
+Licence: Creative Commons Attribution 4.0 International (CC-BY 4.0)
+Author / Copyright: Rowan Design
+Commercial Use: Allowed with attribution
+Real object or analogue: Real physical PCB object
+Format: glTF 2.0 (.gltf + .bin)

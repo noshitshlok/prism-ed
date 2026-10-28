@@ -1,0 +1,8 @@
+Topic: Networking Protocol Stack & Physical Ethernet Interface (RJ45 Shielded Connector)
+Origin: KiCad Official 3D Package Library (kicad-packages3D)
+Source URL: https://github.com/KiCad/kicad-packages3D/tree/master/Connector_RJ.3dshapes
+Licence: GNU General Public License v3.0 with KiCad Library Exception (CC-BY-SA 4.0 compatible)
+Author / Copyright: KiCad MCAD / PCB Contributors
+Commercial Use: Allowed (KiCad Library Exception explicitly permits commercial hardware designs and exports)
+Real object or analogue: Real physical shielded RJ45 Gigabit Ethernet connector
+Format: glTF 2.0 Binary (.glb)

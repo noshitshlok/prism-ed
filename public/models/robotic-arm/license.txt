@@ -1,0 +1,8 @@
+Topic: 6-DOF Articulated Robotic Arm (Canadarm Shuttle Remote Manipulator)
+Origin: NASA 3D Resources
+Source URL: https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Space%20Shuttle%20Remote%20Manipulator%20System%20(Canadarm)
+Licence: Public Domain (United States Government work)
+Author / Copyright: National Aeronautics and Space Administration (NASA)
+Commercial Use: Allowed (NASA Open Data & Media Guidelines)
+Real object or analogue: Real physical 6-DOF robotic manipulator arm
+Format: glTF 2.0 Binary (.glb)

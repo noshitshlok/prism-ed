@@ -1,0 +1,66 @@
+# Environment and Secrets (STRICT - NEVER COMMIT)
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+secrets/
+
+# Database & State
+prismed.db
+prismed.db-journal
+*.sqlite3
+
+# Python & Virtual Environments
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Testing & Linters
+.pytest_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Node & Frontend Build
+node_modules/
+.vite/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Operating System & Editor Artifacts
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Internal Agent Instruction Prompts (Keep ignored per project instructions)
+PRISMED_AGENT_BRIEF_MODELS*.md
+PRISMED_BACKEND_PLAN_FINAL*.md
+PRISMED_FIX_ASK_TUTOR*.md
+PRISMED_FRONTEND_PLAN_FINAL*.md
+PRISMED_MODEL_ADDON*.md
+PRISMED_SCANNER_GLIMPSE*.md
+MASTER_BACKEND_PLAN*.md
+02_ARCHITECTURE.md

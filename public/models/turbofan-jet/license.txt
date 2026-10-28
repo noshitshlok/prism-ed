@@ -1,0 +1,8 @@
+Topic: High-Thrust Propulsion Engine & Stage Assembly (Saturn V Multi-Stage Booster)
+Origin: NASA 3D Resources
+Source URL: https://github.com/nasa/NASA-3D-Resources/tree/master/3D%20Models/Saturn%20V
+Licence: Public Domain (United States Government work)
+Author / Copyright: National Aeronautics and Space Administration (NASA)
+Commercial Use: Allowed (NASA Open Data & Media Guidelines)
+Real object or analogue: Real physical NASA multi-stage propulsion rocket booster
+Format: glTF 2.0 Binary (.glb)

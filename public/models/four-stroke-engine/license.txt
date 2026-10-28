@@ -1,0 +1,8 @@
+Topic: Four-Stroke Internal Combustion Engine (2-Cylinder Engine)
+Origin: Khronos Group glTF-Sample-Models
+Source URL: https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/2CylinderEngine
+Licence: Creative Commons Attribution 4.0 International (CC-BY 4.0)
+Author / Copyright: The Khronos Group Inc. & Contributors
+Commercial Use: Allowed with attribution
+Real object or analogue: Real physical internal combustion engine CAD model
+Format: glTF 2.0 Binary (.glb)
