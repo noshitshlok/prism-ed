@@ -303,12 +303,26 @@ export default function ShowcasePage() {
                                 fontSize: "11px",
                                 padding: "2px 8px",
                                 borderRadius: "var(--radius-pill)",
-                                background: isAnalogue ? "rgba(63, 184, 166, 0.15)" : "rgba(141, 187, 106, 0.15)",
-                                color: isAnalogue ? "var(--teal)" : "var(--moss)",
-                                border: `1px solid ${isAnalogue ? "rgba(63, 184, 166, 0.3)" : "rgba(141, 187, 106, 0.3)"}`,
+                                background: topic.status === "not_in_demo"
+                                  ? "rgba(228, 103, 91, 0.15)"
+                                  : isAnalogue
+                                  ? "rgba(63, 184, 166, 0.15)"
+                                  : "rgba(141, 187, 106, 0.15)",
+                                color: topic.status === "not_in_demo"
+                                  ? "var(--coral)"
+                                  : isAnalogue
+                                  ? "var(--teal)"
+                                  : "var(--moss)",
+                                border: `1px solid ${
+                                  topic.status === "not_in_demo"
+                                    ? "rgba(228, 103, 91, 0.3)"
+                                    : isAnalogue
+                                    ? "rgba(63, 184, 166, 0.3)"
+                                    : "rgba(141, 187, 106, 0.3)"
+                                }`,
                               }}
                             >
-                              {isAnalogue ? "analogue" : "ready"}
+                              {topic.status === "not_in_demo" ? "not_in_demo" : isAnalogue ? "analogue" : "ready"}
                             </span>
                             <span
                               style={{
@@ -351,20 +365,38 @@ export default function ShowcasePage() {
                             overflow: "hidden",
                             position: "relative",
                             marginBottom: "var(--space-4)",
+                            display: topic.status === "not_in_demo" ? "flex" : "block",
+                            alignItems: "center",
+                            justifyContent: "center",
+                            flexDirection: "column",
+                            padding: topic.status === "not_in_demo" ? "var(--space-4)" : 0,
+                            textAlign: "center",
                           }}
                         >
-                          <model-viewer
-                            src={topic.modelUrl}
-                            auto-rotate={topic.autoRotate !== false}
-                            camera-controls
-                            shadow-intensity="1"
-                            exposure="1.1"
-                            style={{
-                              width: "100%",
-                              height: "100%",
-                              outline: "none",
-                            }}
-                          />
+                          {topic.status === "not_in_demo" ? (
+                            <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "8px" }}>
+                              <div style={{ fontSize: "28px", color: "var(--coral)" }}>⊗</div>
+                              <span style={{ fontFamily: "var(--font-mono)", fontSize: "12px", color: "var(--coral)", textTransform: "uppercase", letterSpacing: "1px" }}>
+                                Excluded From Demo
+                              </span>
+                              <span style={{ fontSize: "12px", color: "var(--paper-500)", maxWidth: "280px" }}>
+                                Removed per owner review pending authentic physical CAD sourcing.
+                              </span>
+                            </div>
+                          ) : (
+                            <model-viewer
+                              src={topic.modelUrl}
+                              auto-rotate={topic.autoRotate !== false}
+                              camera-controls
+                              shadow-intensity="1"
+                              exposure="1.1"
+                              style={{
+                                width: "100%",
+                                height: "100%",
+                                outline: "none",
+                              }}
+                            />
+                          )}
                         </div>
 
                         {/* Description */}

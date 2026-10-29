@@ -1,8 +1,5 @@
-Topic: Compiler Pipeline Stages (Lexer to Code Generation Pipeline)
-Origin: Khronos Group glTF-Sample-Models (ReciprocatingSaw)
-Source URL: https://github.com/KhronosGroup/glTF-Sample-Models/tree/master/2.0/ReciprocatingSaw
-Licence: Creative Commons Attribution 4.0 International (CC-BY 4.0)
-Author / Copyright: The Khronos Group Inc. & Contributors
-Commercial Use: Allowed with attribution
-Real object or analogue: Real electromechanical automated production pipeline analogue
-Format: glTF 2.0 Binary (.glb)
+Topic: Compiler Pipeline & Optimization Engine (CP-01)
+Status: not_in_demo (Excluded from demo per owner review)
+Reason: The previous mechanical tool model (Khronos Group ReciprocatingSaw) was deleted as it showed a hand-held power saw rather than an ordered multi-stage compiler pipeline process. Sourcing across GitHub, Khronos, and Smithsonian did not yield a freely redistributable, multi-stage industrial production or printing press model meeting §2.2.
+Licence: Not applicable (model removed)
+Source URL: https://github.com/noshitshlok/prism-ed

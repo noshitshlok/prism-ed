@@ -136,19 +136,48 @@ export default function TopicPage() {
               >
               {/* Left Column: 3D Viewer & Text Fallback List (§6.2, §6.7) */}
               <div style={{ display: "flex", flexDirection: "column", gap: "var(--space-5)" }}>
-                <ModelViewer
-                  modelUrl={topic.modelUrl}
-                  parts={topic.parts}
-                  selectedPartId={selectedPartId}
-                  onPartSelect={(pId) => setSelectedPartId(pId)}
-                  discipline={topic.discipline}
-                  autoRotate={topic.autoRotate}
-                  animation={topic.animation}
-                  hiddenPartIds={hiddenPartIds}
-                  onToggleVisibility={handleToggleVisibility}
-                  onIsolatePart={handleIsolatePart}
-                  onShowAllParts={handleShowAllParts}
-                />
+                {topic.status === "not_in_demo" ? (
+                  <GlassPanel
+                    style={{
+                      padding: "var(--space-6)",
+                      minHeight: "440px",
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      textAlign: "center",
+                      gap: "var(--space-3)",
+                      border: "1px dashed rgba(228, 103, 91, 0.35)",
+                    }}
+                  >
+                    <div style={{ fontSize: "36px", color: "var(--coral)" }}>⊗</div>
+                    <h3 style={{ fontSize: "20px", color: "var(--paper-100)", margin: 0 }}>
+                      Specimen Excluded From Demo
+                    </h3>
+                    <p style={{ color: "var(--paper-400)", fontSize: "14px", maxWidth: "440px", lineHeight: 1.5, margin: 0 }}>
+                      This model was removed per owner review pending authentic physical CAD sourcing. The curriculum text, part explanations, and AI Tutor remain accessible.
+                    </p>
+                    <div style={{ marginTop: "var(--space-2)" }}>
+                      <Link to="/" style={{ color: "var(--amber)", fontSize: "14px", textDecoration: "none" }}>
+                        ← Return to Bench
+                      </Link>
+                    </div>
+                  </GlassPanel>
+                ) : (
+                  <ModelViewer
+                    modelUrl={topic.modelUrl}
+                    parts={topic.parts}
+                    selectedPartId={selectedPartId}
+                    onPartSelect={(pId) => setSelectedPartId(pId)}
+                    discipline={topic.discipline}
+                    autoRotate={topic.autoRotate}
+                    animation={topic.animation}
+                    hiddenPartIds={hiddenPartIds}
+                    onToggleVisibility={handleToggleVisibility}
+                    onIsolatePart={handleIsolatePart}
+                    onShowAllParts={handleShowAllParts}
+                  />
+                )}
 
                 {/* Text Fallback & Part Visibility Index (§6.2, §6.7) */}
                 <div

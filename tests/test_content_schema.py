@@ -37,15 +37,16 @@ def test_all_22_topics_content_schema_and_models(client):
         assert detail.get("modelSource") in {"scan", "cad", "uploaded", "generated", "analogue"}
         assert detail.get("status") in {"ready", "not_in_demo"}
 
-        # 3. modelUrl exists on disk and is under 8 MB
-        model_url = detail["modelUrl"].lstrip("/\\")
-        model_file = BASE_DIR / "public" / model_url
-        if not model_file.exists():
-            model_file = BASE_DIR / "public" / "models" / topic_id / Path(detail["modelUrl"]).name
-        assert model_file.exists(), f"Model file missing for topic '{topic_id}' at {model_file}"
+        # 3. modelUrl exists on disk and is under 8 MB (for ready topics)
+        if detail.get("status") == "ready":
+            model_url = detail["modelUrl"].lstrip("/\\")
+            model_file = BASE_DIR / "public" / model_url
+            if not model_file.exists():
+                model_file = BASE_DIR / "public" / "models" / topic_id / Path(detail["modelUrl"]).name
+            assert model_file.exists(), f"Model file missing for topic '{topic_id}' at {model_file}"
 
-        file_size = model_file.stat().st_size
-        assert file_size <= 8 * 1024 * 1024, f"Model file for '{topic_id}' exceeds 8 MB: {file_size} bytes"
+            file_size = model_file.stat().st_size
+            assert file_size <= 8 * 1024 * 1024, f"Model file for '{topic_id}' exceeds 8 MB: {file_size} bytes"
 
         # 4. Each hotspotPosition and hotspotNormal parses
         parts = detail["parts"]

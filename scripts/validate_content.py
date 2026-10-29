@@ -62,23 +62,24 @@ def validate_all_content():
             print(f"ERROR: Incomplete license file for topic '{topic.id}' at {lic_file}", file=sys.stderr)
             sys.exit(1)
 
-        # Rule (§1 & §9): modelUrl exists on disk and is under 8 MB
-        clean_model_rel = topic.modelUrl.lstrip("/\\")
-        model_file = BASE_DIR / "public" / clean_model_rel
-        if not model_file.exists():
-            # Try models_dir / topic.id / filename
-            alt_model_file = models_dir / topic.id / Path(topic.modelUrl).name
-            if alt_model_file.exists():
-                model_file = alt_model_file
-            else:
-                print(f"ERROR: 3D model file for topic '{topic.id}' does not exist at {model_file}", file=sys.stderr)
-                sys.exit(1)
+        # Rule (§1 & §9): For ready topics, modelUrl exists on disk and is under 8 MB
+        if topic.status == "ready":
+            clean_model_rel = topic.modelUrl.lstrip("/\\")
+            model_file = BASE_DIR / "public" / clean_model_rel
+            if not model_file.exists():
+                # Try models_dir / topic.id / filename
+                alt_model_file = models_dir / topic.id / Path(topic.modelUrl).name
+                if alt_model_file.exists():
+                    model_file = alt_model_file
+                else:
+                    print(f"ERROR: 3D model file for topic '{topic.id}' does not exist at {model_file}", file=sys.stderr)
+                    sys.exit(1)
 
-        size_bytes = model_file.stat().st_size
-        max_size = 8 * 1024 * 1024
-        if size_bytes > max_size:
-            print(f"ERROR: 3D model file for topic '{topic.id}' exceeds 8MB limit: {size_bytes} bytes", file=sys.stderr)
-            sys.exit(1)
+            size_bytes = model_file.stat().st_size
+            max_size = 8 * 1024 * 1024
+            if size_bytes > max_size:
+                print(f"ERROR: 3D model file for topic '{topic.id}' exceeds 8MB limit: {size_bytes} bytes", file=sys.stderr)
+                sys.exit(1)
 
         validated_topic_ids.add(topic.id)
 
