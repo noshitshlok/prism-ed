@@ -21,7 +21,7 @@ class Settings(BaseSettings):
     GEMINI_API_KEY: str = ""
     GROQ_TUTOR_MODEL: str = "qwen/qwen3.8-27b"
     GROQ_QUIZ_MODEL: str = "qwen/qwen3.8-27b"
-    GEMINI_MODEL: str = "gemini-1.5-flash"
+    GEMINI_MODEL: str = "gemini-3.5-flash"
     RATE_LIMIT_PER_MINUTE: int = 20
     MAX_QUESTION_CHARS: int = 500
     DATABASE_URL: str = "sqlite:///./prismed.db"

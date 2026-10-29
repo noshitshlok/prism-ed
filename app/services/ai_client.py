@@ -1,4 +1,5 @@
 import json
+import asyncio
 from typing import AsyncGenerator, List, Dict, Any, Optional
 from groq import AsyncGroq
 from app.core.config import settings
@@ -45,7 +46,7 @@ class AIClient:
                     "messages": messages,
                     "max_tokens": max_tokens,
                     "temperature": temperature,
-                    "timeout": 15.0
+                    "timeout": 20.0
                 }
                 if response_format:
                     kwargs["response_format"] = response_format
@@ -74,9 +75,11 @@ class AIClient:
                 full_prompt = "\n\n".join(prompt_parts)
 
                 gemini_model = settings.GEMINI_MODEL
-                resp = gemini_cli.models.generate_content(
+                resp = await asyncio.to_thread(
+                    gemini_cli.models.generate_content,
                     model=gemini_model,
-                    contents=full_prompt
+                    contents=full_prompt,
+                    config={"http_options": {"timeout": 20000}}
                 )
                 answer_text = resp.text or ""
                 logger.info(f"AI response served by Gemini fallback: {gemini_model}")

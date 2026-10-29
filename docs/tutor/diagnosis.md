@@ -1,43 +1,39 @@
-# PrismEd Ask Tutor — Diagnosis Report (§3)
+# PrismEd Ask Tutor — Diagnosis Report (§2)
 
-**Specification:** `PRISMED_FIX_ASK_TUTOR.md` (§3)  
-**Date:** 2026-10-28  
-**Target:** Ask Tutor Component & Backend Endpoint  
-
----
-
-## 1. Reproduction Steps
-
-1. Launch backend (`python -m uvicorn app.main:app --port 8000`) and frontend (`npm run dev`).
-2. Navigate to `http://localhost:5173/topics/circuit-board`.
-3. In the right-hand margin panel, note the "Ask about this part" box.
-4. Enter question: *"Why does Electrolytic Capacitors work this way?"*.
-5. Click **Ask**.
-
-### Observed Behaviors:
-- **Network Request:** `POST /api/v1/tutor/stream` followed by `POST /api/v1/tutor/ask`.
-- **Backend Response:** Prior to fix, returned `503 AI_UNAVAILABLE` due to deprecated model name (`llama-3.3-70b-versatile` returned `404 model_not_found` from Groq).
-- **UI State Loss:** When a user clicked outside a pin or if no part was selected, `MarginNotes.jsx` completely unmounted `<TutorBox />` because it was wrapped in `{selectedPart ? ... : ...}`, reverting the entire right panel to the empty placeholder: *"Select a numbered point on the 3D model..."*.
-- **Topic-Level Block:** Asking a question without selecting a part was impossible because the input was hidden, and the backend schema strictly required `partId: str` (returning `422 Unprocessable Entity` or `404 NOT_FOUND` if `partId` was omitted).
+**Specification:** `PRISMED_FINAL_TUTOR_PROMPT.md` (§2)  
+**Date:** 2026-10-29  
+**Target:** Ask Tutor Component & AI Backend Integration  
 
 ---
 
-## 2. Investigation Matrix (§3.4)
+## 1. Reproduction and Findings
 
-| # | Hypothesized Cause | Evaluation Method | Result | Finding & Resolution |
+### Reproduction Steps:
+1. Start backend (`python -m uvicorn app.main:app --port 8000`) and frontend (`npm run dev`).
+2. Open `circuit-board` at `http://localhost:5173/topics/circuit-board`.
+3. Select part (`capacitors`), type "What does this part do?", and click **Ask**.
+4. Observed:
+   - Browser request: `POST /api/v1/tutor/ask` with JSON `{ "topicId": "circuit-board", "partId": "capacitors", "question": "..." }`.
+   - Result: LLM generated grounded pedagogical response in 2-4 sentences.
+
+---
+
+## 2. Investigation Matrix (D1–D7)
+
+| # | Cause | How Checked | Result | Finding & Fix |
 |---|---|---|---|---|
-| **A** | **Route mismatch** | Compared `src/api/tutor.js` with `app/routers/tutor.py` | **Partial** | Frontend called `/api/v1/tutor/ask` and `/api/v1/tutor/stream`. Routes aligned, but `POST /tutor/` alias was needed to preserve legacy compatibility per §4.1. |
-| **B** | **Environment variable mismatch** | Checked `.env` against `app/core/config.py` | **CONFIRMED** | Root `.env` was missing. Loaded `.env.example` had deprecated model `llama-3.3-70b-versatile`. Updated to active model `qwen/qwen3.8-27b`. |
-| **C** | **Backend exception** | Inspected server tracebacks on `/api/v1/tutor/ask` | **CONFIRMED** | Missing keys/deprecated model raised `503`. Resolved by adding curriculum-grounded fallback synthesized directly from `topics.json`. |
-| **D** | **Selection cleared** | Inspected `MarginNotes.jsx` and `ModelViewer.jsx` event propagation | **CONFIRMED (Primary UI Root Cause)** | `MarginNotes.jsx` conditionally unmounted `TutorBox` when `!selectedPart`, resetting panel to empty state. Background canvas clicks cleared selection. Fixed by mounting `TutorBox` persistently at the topic level and preventing canvas click leaks. |
-| **E** | **Missing context** | Examined `TutorRequest` schema in `app/schemas/tutor.py` | **CONFIRMED** | `partId: str` was mandatory. When `partId` was omitted or `None`, FastAPI raised `422` and route handler raised `404`. Fixed by making `partId: Optional[str] = None`. |
-| **F** | **Response shape mismatch** | Compared `TutorResponse` against §4.1 | **CONFIRMED** | Response was missing `topicId` and `partId`. Updated schema to `{ answer, topicId, partId }`. |
-| **G** | **Model-specific failure** | Tested across multiple topics (`circuit-board`, `space-suit`, `differential-gearbox`) | **Negative** | The failure was systemic across all 22 models due to Causes B, D, and E. |
+| **D1** | **Route mismatch** | Compared `src/api/tutor.js` (`POST /api/v1/tutor/ask`) with routes in `app/routers/tutor.py` | **Matched / Aliased** | Target route `POST /api/v1/tutor/ask` is primary. Maintained `POST /tutor` and `POST /tutor/ask` as backward-compatibility aliases in `app/routers/tutor.py` and `app/main.py`. |
+| **D2** | **Key name mismatch** | Listed env var names in `app/.env` without logging values | **Verified** | `GROQ_API_KEY` is present and formatted with standard `gsk_` prefix from groq.com. `GEMINI_API_KEY` is present. Code in `app/core/config.py` explicitly reads `GROQ_API_KEY`. |
+| **D3** | **Provider rejects request** | Inspected API provider calls and error traces for retired models | **Confirmed & Fixed** | Legacy Groq model `llama-3.3-70b-versatile` returned `404 model_not_found`. Updated `GROQ_TUTOR_MODEL` in config and `app/.env` to `qwen/qwen3.8-27b`. Legacy Gemini model `gemini-1.5-flash` returned `404 NOT_FOUND`; updated `GEMINI_MODEL` in config and `app/.env` to `gemini-3.5-flash`. Both models verified live with 200 OK. |
+| **D4** | **Selected part cleared on Ask or Enter** | Inspected click and form handlers in `TutorBox.jsx` and `TopicPage.jsx` | **Confirmed & Fixed** | Form submission now explicitly executes `e.preventDefault()` and `e.stopPropagation()`. In `MarginNotes.jsx` and `TopicPage.jsx`, `selectedPartId` state is maintained without unmounting or resetting during Ask or Enter. |
+| **D5** | **Request missing fields** | Inspected `TutorRequest` schema in `app/schemas/tutor.py` | **Confirmed & Fixed** | Schema previously required `partId: str`, rejecting model-level questions without a selected part (`422 Unprocessable Entity`). Fixed by declaring `partId: Optional[str] = None`. |
+| **D6** | **Response field mismatch** | Compared backend response with frontend expectations | **Confirmed & Fixed** | Backend response schema standardized to `{ "answer": str, "topicId": str, "partId": Optional[str], "modelUsed": Optional[str] }`. `src/api/tutor.js` extracts `res.data.answer` and `TutorBox.jsx` updates `answer` state. |
+| **D7** | **Unhandled exception returns raw 500** | Simulated LLM provider failure and timeout | **Confirmed & Fixed** | In `app/routers/tutor.py`, provider exceptions are caught and returned as HTTP 503: `{ "error": { "code": "AI_UNAVAILABLE", "message": "The tutor is unavailable right now.", "requestId": "..." } }`. No raw 500s, no silent failures, and no internal tracebacks or API keys are leaked. |
 
 ---
 
-## 3. Summary of Root Causes
-1. **Schema & Route:** `partId` was mandatory in `TutorRequest`, blocking topic-level questions. Response schema lacked `topicId` and `partId`.
-2. **UI Unmounting:** `MarginNotes.jsx` hid the tutor box when `selectedPart` was null, preventing general model inquiries and discarding state.
-3. **AI Model & Fallback:** Groq model identifier was outdated and there was no offline curriculum fallback.
-
+## 3. Summary of Fixes Applied
+1. **Dynamic Context Builder (§3.1):** Assembles context dynamically from `topics.json` (`name`, `discipline`, `subfield` defaulting to 'Engineering', `description`, each part's name & explanation, `equationsCovered`).
+2. **Unified System Instruction (§3.2):** One single tutor system prompt across all topics instructing 2–5 sentence answers, explaining selected parts first, plain text formulas, and polite redirections.
+3. **Provider Failover & Timeouts (§3.4):** Groq `qwen/qwen3.8-27b` primary with 20-second timeout; Gemini `gemini-3.5-flash` fallback with 20-second timeout.
+4. **Error Handling & Disclaimer (§3.5, §3.6):** HTTP 503 on provider failure with retry button; AI disclaimer rendered under every answer in `TutorBox.jsx`.

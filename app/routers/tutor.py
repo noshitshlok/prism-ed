@@ -46,7 +46,7 @@ async def ask_tutor(req: TutorRequest, request: Request):
             status_code=503,
             detail={
                 "code": "AI_UNAVAILABLE",
-                "message": f"AI Tutor unavailable: {str(e)}",
+                "message": "The tutor is unavailable right now.",
                 "requestId": req_id
             }
         )
@@ -94,7 +94,7 @@ async def stream_tutor(req: TutorRequest, request: Request):
         except Exception as e:
             yield {
                 "event": "error",
-                "data": json.dumps({"error": str(e)})
+                "data": json.dumps({"error": "The tutor is unavailable right now."})
             }
 
     return EventSourceResponse(event_generator())

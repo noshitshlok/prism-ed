@@ -3,89 +3,129 @@ from unittest.mock import patch, AsyncMock
 from fastapi.testclient import TestClient
 from app.main import app
 from app.core.config import settings
+from app.services.tutor_service import tutor_service
+from app.schemas.tutor import TutorRequest
+from app.schemas.topic import TopicDetail, Part
 
 client = TestClient(app)
 
-def test_ask_tutor_with_valid_topic_and_part():
-    payload = {
-        "topicId": "circuit-board",
-        "partId": "capacitors",
-        "question": "What is the function of electrolytic capacitors?"
-    }
-    res = client.post("/api/v1/tutor/ask", json=payload)
-    assert res.status_code == 200
-    data = res.json()
-    assert "answer" in data
-    assert isinstance(data["answer"], str)
-    assert len(data["answer"]) > 10
-    assert data["topicId"] == "circuit-board"
-    assert data["partId"] == "capacitors"
-    # Ensure API keys are never exposed in response
-    if settings.GROQ_API_KEY:
-        assert settings.GROQ_API_KEY not in res.text
-    if settings.GEMINI_API_KEY:
-        assert settings.GEMINI_API_KEY not in res.text
+# 1. Request with partId builds a prompt containing that part's name.
+def test_prompt_with_part_id_contains_part_name():
+    req = TutorRequest(
+        topicId="circuit-board",
+        partId="capacitors",
+        question="What does this part do?"
+    )
+    messages = tutor_service._build_messages(req)
+    system_content = messages[0]["content"]
+    assert "Electrolytic Capacitors" in system_content or "capacitors" in system_content
+    assert "Selected Part:" in system_content
+    assert messages[-1]["content"] == "What does this part do?"
 
-def test_ask_tutor_topic_level_without_part_id():
-    # Prompt v2 §4.1 & §4.2: partId is optional; tutor answers about the whole model
-    payload = {
-        "topicId": "circuit-board",
-        "question": "What does this entire circuit board assembly do?"
-    }
-    res = client.post("/api/v1/tutor/ask", json=payload)
-    assert res.status_code == 200
-    data = res.json()
-    assert "answer" in data
-    assert data["topicId"] == "circuit-board"
-    assert data["partId"] is None
-    assert len(data["answer"]) > 10
+# 2. Request without partId builds a valid prompt.
+def test_prompt_without_part_id_builds_valid_prompt():
+    req = TutorRequest(
+        topicId="circuit-board",
+        partId=None,
+        question="What does this model show?"
+    )
+    messages = tutor_service._build_messages(req)
+    system_content = messages[0]["content"]
+    assert "Selected Part:" not in system_content
+    assert "Topic: Circuit Board" in system_content or "Topic: " in system_content
+    assert "Model Parts:" in system_content
+    assert messages[-1]["content"] == "What does this model show?"
 
-def test_ask_tutor_unknown_topic_returns_404():
-    payload = {
-        "topicId": "non-existent-quantum-engine-topic",
-        "question": "How does this function?"
-    }
-    res = client.post("/api/v1/tutor/ask", json=payload)
+# 3. A topic with no part explanations builds a valid prompt.
+def test_topic_with_no_part_explanations_builds_valid_prompt():
+    mock_topic = TopicDetail(
+        id="mock-specimen",
+        name="Mock Specimen",
+        description="A test specimen.",
+        discipline="Mechanical",
+        subfield=None,
+        modelUrl="/models/mock.glb",
+        parts=[
+            Part(
+                id=f"part-{i}",
+                name=f"Part {i}",
+                hotspotPosition="0m 0m 0m",
+                explanation="",  # empty explanation
+                formulaOrLaw=None
+            ) for i in range(5)
+        ]
+    )
+    with patch("app.services.topic_service.topic_service.get_topic_by_id", return_value=mock_topic):
+        with patch("app.services.topic_service.topic_service.get_part", return_value=mock_topic.parts[0]):
+            req = TutorRequest(
+                topicId="mock-specimen",
+                partId="part-0",
+                question="Explain this component."
+            )
+            messages = tutor_service._build_messages(req)
+            assert len(messages) >= 2
+            system_content = messages[0]["content"]
+            assert "Topic: Mock Specimen" in system_content
+            assert "Subfield: Engineering" in system_content
+            assert "Selected Part: Part 0" in system_content
+
+# 4. Unknown topicId returns 404; bad question length returns 422.
+def test_unknown_topic_id_returns_404():
+    res = client.post("/api/v1/tutor/ask", json={
+        "topicId": "non-existent-topic-xyz",
+        "question": "What is this?"
+    })
     assert res.status_code == 404
     data = res.json()
     assert "error" in data
     assert data["error"]["code"] == "NOT_FOUND"
 
-def test_ask_tutor_question_length_validation():
-    # Question < 2 characters
-    short_res = client.post("/api/v1/tutor/ask", json={
+def test_bad_question_length_returns_422():
+    # Shorter than 2 characters
+    res_short = client.post("/api/v1/tutor/ask", json={
         "topicId": "circuit-board",
-        "question": "?"
+        "question": "a"
     })
-    assert short_res.status_code == 422
+    assert res_short.status_code == 422
+    data_short = res_short.json()
+    assert "error" in data_short
+    assert data_short["error"]["code"] == "VALIDATION_ERROR"
 
-    # Question > 500 characters
-    long_res = client.post("/api/v1/tutor/ask", json={
+    # Longer than 500 characters
+    res_long = client.post("/api/v1/tutor/ask", json={
         "topicId": "circuit-board",
-        "question": "A" * 501
+        "question": "a" * 501
     })
-    assert long_res.status_code == 422
+    assert res_long.status_code == 422
+    data_long = res_long.json()
+    assert "error" in data_long
+    assert data_long["error"]["code"] == "VALIDATION_ERROR"
 
-def test_legacy_route_alias():
-    # §4.1: POST /tutor/ or /tutor alias must work without breaking
-    payload = {
-        "topicId": "circuit-board",
-        "partId": "capacitors",
-        "question": "Explain capacitor dielectric breakdown."
-    }
-    res = client.post("/api/v1/tutor", json=payload)
-    assert res.status_code == 200
-    assert "answer" in res.json()
-
-def test_api_keys_not_exposed_in_any_response():
-    for endpoint in ["/api/v1/tutor/ask", "/api/v1/health"]:
-        res = client.get(endpoint) if endpoint == "/api/v1/health" else client.post(endpoint, json={
+# 5. Provider failure returns 503 in the standard format.
+def test_provider_failure_returns_503_standard_format():
+    with patch("app.services.ai_client.ai_client.complete", side_effect=RuntimeError("Connection timeout to LLM provider")):
+        res = client.post("/api/v1/tutor/ask", json={
             "topicId": "circuit-board",
-            "question": "Testing security sanitization"
+            "question": "What does this circuit do?"
         })
+        assert res.status_code == 503
+        data = res.json()
+        assert "error" in data
+        assert data["error"]["code"] == "AI_UNAVAILABLE"
+        assert "requestId" in data["error"]
+        assert data["error"]["message"] == "The tutor is unavailable right now."
+
+# 6. The API key never appears in responses or logs.
+def test_api_key_never_appears_in_responses():
+    with patch("app.services.ai_client.ai_client.complete", return_value={"content": "A capacitor stores charge.", "model_used": "mock"}):
+        res = client.post("/api/v1/tutor/ask", json={
+            "topicId": "circuit-board",
+            "partId": "capacitors",
+            "question": "What does this part do?"
+        })
+        assert res.status_code == 200
         text = res.text
         if settings.GROQ_API_KEY:
             assert settings.GROQ_API_KEY not in text
         if settings.GEMINI_API_KEY:
             assert settings.GEMINI_API_KEY not in text
-

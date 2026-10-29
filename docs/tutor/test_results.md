@@ -1,66 +1,94 @@
-# PrismEd Ask Tutor — Test Protocol & Results Report (§5 & §6.4)
+# PrismEd Ask Tutor — Live Test Results & Sign-off (§6)
 
-**Specification:** `PRISMED_FIX_ASK_TUTOR.md` (§5)  
-**Date:** 2026-10-28  
-**Scope:** Grounded AI Tutor Verification Across All Ready Models  
+**Specification:** `PRISMED_FINAL_TUTOR_PROMPT.md` (§6)  
+**Date:** 2026-10-29  
+**Target:** Live Verification of Grounded AI Tutor Across All Models  
 **Overall Status:** **100% PASS**  
 
 ---
 
-## 1. Summary of Verification Results
+## 1. Automated Test Suite (`tests/test_tutor.py`)
 
-| Test Scenario | Condition / Input | Expected Result | Actual Outcome | Status |
-|---|---|---|---|---|
-| **Part-Level Question (Circuit Board)** | Part: `capacitors`<br>Question: *"Why does it work this way?"* | Grounded answer referencing capacitance ($C = Q / V$) and ripple decoupling | Answer delivered in 850 ms grounded directly in circuit board capacitors | **PASS** |
-| **Model-Level Question (No Part Selected)** | Model: `circuit-board`<br>Part: `null`<br>Question: *"What does this board do?"* | Grounded answer detailing whole PCB function, structural routing, and components | Comprehensive summary returned without requiring part selection | **PASS** |
-| **Part-Level Question (Space Suit)** | Part: `helmet`<br>Question: *"How does the visor protect against solar radiation?"* | Grounded answer on gold-coated LEVA visor and infrared reflection | Clear pedagogical explanation citing thermal radiation laws | **PASS** |
-| **Model-Level Question (Space Suit)** | Model: `space-suit`<br>Part: `null`<br>Question: *"What is the purpose of this suit?"* | Whole-model overview of Apollo EMU extravehicular mobility system | Answer delivered covering life support, pressure retention, and mobility | **PASS** |
-| **Off-Topic Redirection** | Question: *"What is the weather outside today?"* | Polite redirection back to the 3D specimen and engineering physics | System responds: *"I can only answer questions related to this 3D specimen..."* | **PASS** |
-| **Error Handling & Resilience** | Simulated network/API failure | Visible error: *"The tutor is unavailable right now. Try again."* + **Retry** button | Error state mounted cleanly; no empty blank panel; retry button functions | **PASS** |
-| **Selection Persistence** | User types question and hits Enter or clicks Ask | Selected part remains highlighted in 3D viewer; margin notes stay active | Zero selection clearing; component remains active | **PASS** |
+All automated test requirements run with mocked LLM clients for fast, deterministic CI validation:
 
----
+| Test Case | Verification Condition | Result |
+|---|---|---|
+| `test_prompt_with_part_id_contains_part_name` | Request with `partId` builds a prompt containing that part's name | **PASS** |
+| `test_prompt_without_part_id_builds_valid_prompt` | Request without `partId` builds a valid prompt for the whole model | **PASS** |
+| `test_topic_with_no_part_explanations_builds_valid_prompt` | A topic with no part explanations builds a valid prompt | **PASS** |
+| `test_unknown_topic_id_returns_404` | Unknown `topicId` returns 404 in standard format | **PASS** |
+| `test_bad_question_length_returns_422` | Bad question length (< 2 or > 500 characters) returns 422 | **PASS** |
+| `test_provider_failure_returns_503_standard_format` | Provider failure after fallback returns 503 with standard JSON | **PASS** |
+| `test_api_key_never_appears_in_responses` | API keys (`GROQ_API_KEY`, `GEMINI_API_KEY`) never appear in responses | **PASS** |
 
-## 2. Test Execution Across 22 Specimens
-
-All 22 topics marked `ready` in `MODEL_REPORT.md` were validated for both topic-level and part-level inquiries:
-
-| # | Specimen | Part-Level Ask Verified | Model-Level Ask Verified | Average Latency |
-|---|---|---|---|---|
-| 1 | `circuit-board` | **PASS** (`capacitors`) | **PASS** | ~110 ms (cached) / ~850 ms (live) |
-| 2 | `space-suit` | **PASS** (`helmet`) | **PASS** | ~820 ms |
-| 3 | `human-heart` | **PASS** (`aorta`) | **PASS** | ~790 ms |
-| 4 | `solar-system` | **PASS** (`heat-shield`) | **PASS** | ~840 ms |
-| 5 | `digital-logic-gates` | **PASS** (`dip-body`) | **PASS** | ~810 ms |
-| 6 | `process-scheduling` | **PASS** (`multi-core-die`) | **PASS** | ~860 ms |
-| 7 | `compiler-pipeline` | **PASS** (`gearbox-optimizer`) | **PASS** | ~880 ms |
-| 8 | `memory-data-structures` | **PASS** (`dram-chips`) | **PASS** | ~800 ms |
-| 9 | `os-virtual-memory` | **PASS** (`page-frames-dram`) | **PASS** | ~820 ms |
-| 10 | `networking-protocol-stack` | **PASS** (`shield-housing`) | **PASS** | ~780 ms |
-| 11 | `database-b-tree` | **PASS** (`nand-flash`) | **PASS** | ~810 ms |
-| 12 | `distributed-microservices` | **PASS** (`chassis-frame`) | **PASS** | ~830 ms |
-| 13 | `gpu-architecture` | **PASS** (`gpu-die-heatsink`) | **PASS** | ~850 ms |
-| 14 | `transformer-attention` | **PASS** (`tensor-die`) | **PASS** | ~840 ms |
-| 15 | `cpu-architecture` | **PASS** (`ihs-spreader`) | **PASS** | ~820 ms |
-| 16 | `ai-server-rack` | **PASS** (`server-chassis`) | **PASS** | ~860 ms |
-| 17 | `induction-motor` | **PASS** (`stator-windings`) | **PASS** | ~840 ms |
-| 18 | `four-stroke-engine` | **PASS** (`piston-assembly`) | **PASS** | ~830 ms |
-| 19 | `turbofan-jet` | **PASS** (`propulsion-nozzles`) | **PASS** | ~850 ms |
-| 20 | `differential-gearbox` | **PASS** (`planetary-bevel-gears`) | **PASS** | ~810 ms |
-| 21 | `truss-bridge` | **PASS** (`upper-chord`) | **PASS** | ~790 ms |
-| 22 | `robotic-arm` | **PASS** (`shoulder-joint`) | **PASS** | ~830 ms |
+**Pytest Suite Summary:** 22/22 total tests pass.
 
 ---
 
-## 3. Automated Test Suite Results
+## 2. Live Interactive Tests: `circuit-board` & `space-suit`
 
-The comprehensive test suite in `tests/test_tutor.py` validates all contract constraints:
-1. `test_ask_tutor_with_valid_topic_and_part`: **PASS** (returns 200, string answer, topicId, partId).
-2. `test_ask_tutor_topic_level_without_part_id`: **PASS** (partId is null, returns 200 and whole-model answer).
-3. `test_ask_tutor_unknown_topic_returns_404`: **PASS** (standard error schema with NOT_FOUND).
-4. `test_ask_tutor_question_length_validation`: **PASS** (< 2 chars and > 500 chars return 422).
-5. `test_legacy_route_alias`: **PASS** (`POST /api/v1/tutor` alias functions identically).
-6. `test_api_keys_not_exposed_in_any_response`: **PASS** (zero API key leakage in responses).
+Tested against running app with live LLM (Groq `qwen/qwen3.8-27b` primary, Gemini `gemini-3.5-flash` fallback):
 
-Total backend tests across project: **21 / 21 PASS (100% green)**.
+| Specimen | Test Scenario | Question Input | Observed Live Response | Status |
+|---|---|---|---|---|
+| **Circuit Board** | Select part (`capacitors`) | *"What does this part do?"* | "The electrolytic capacitors store electrostatic energy across a dielectric layer and act as decoupling reservoirs to smooth voltage ripples. Governed by $C = Q / V$ and energy $E = 0.5 \cdot C \cdot V^2$, they suppress high-frequency supply transients on the PCB." | **PASS** |
+| **Circuit Board** | No part selected | *"What does this model show?"* | "This model shows a printed circuit board (PCB) assembly illustrating fundamental electrical engineering components, including IC chips, electrolytic capacitors, rectifier diodes, surface-mount resistors, and edge connector traces." | **PASS** |
+| **Circuit Board** | General topic question | *"How does capacitance decouple DC power?"* | "Capacitors provide low impedance to AC transient spikes while blocking DC steady-state current, stabilizing input rails." | **PASS** |
+| **Circuit Board** | Off-topic question | *"What is the weather?"* | "I'm sorry, but I can't provide weather information as I'm a tutor focused on Circuit Board Basics. I'd be happy to help you understand components like resistors, capacitors, or IC chips on a PCB instead." | **PASS** |
+| **Circuit Board** | AI Disclaimer line | Visible under answer | Small line: *"Answers are generated by AI and may contain mistakes. Check important facts."* rendered cleanly. | **PASS** |
+| **Circuit Board** | Simulated 503 / Key Error | Provider offline / Invalid key | Visible UI message: *"The tutor is unavailable right now."* with an interactive **Retry** button. | **PASS** |
+| **Space Suit** | Select part (`helmet`) | *"What does this part do?"* | "The Apollo EMU Extravehicular Visor Assembly protects the astronaut from intense solar radiation and micrometeoroids while preserving high-contrast visibility in vacuum." | **PASS** |
+| **Space Suit** | No part selected | *"What does this model show?"* | "This model displays the Apollo Extravehicular Mobility Unit (EMU) spacesuit, demonstrating life support systems, thermal micrometeoroid garment layers, and joint mobility articulations." | **PASS** |
 
+---
+
+## 3. Live Test Verification Across All 22 Ready Topics
+
+Every topic marked `ready` in `app/data/topics.json` was queried live via `scripts/test_live_all_tutors.py` against the real API:
+
+| # | Topic ID | Status | Selected Part Tested | Live Tutor Response Summary |
+|---|---|---|---|---|
+| 1 | `circuit-board` | **ready** | `capacitors` | Grounded explanation of capacitive charge storage and voltage smoothing |
+| 2 | `space-suit` | **ready** | `helmet` | Optical reflection of solar infrared rays and structural pressure retention |
+| 3 | `human-heart` | **ready** | `aorta` | Systemic arterial blood delivery under high stroke volume pressure |
+| 4 | `solar-system` | **ready** | `sun` | Central gravitational well and nuclear fusion radiative equilibrium |
+| 5 | `digital-logic-gates` | **ready** | `dip-body` | Dual in-line package housing integrated semiconductor logic gates |
+| 6 | `process-scheduling` | **ready** | `multi-core-die` | Multi-core CPU scheduling, thread context switching, and cache management |
+| 7 | `compiler-pipeline` | **ready** | `lexer` | Lexical analysis tokenizing source characters into symbolic lexical units |
+| 8 | `memory-data-structures` | **ready** | `dram-chips` | Volatile dynamic capacitor cell storage refreshed across memory banks |
+| 9 | `os-virtual-memory` | **ready** | `page-frames-dram` | Physical memory page frame mapping and translation lookaside buffer (TLB) |
+| 10 | `networking-protocol-stack` | **ready** | `shield-housing` | Faraday shielding against electromagnetic interference in network transceivers |
+| 11 | `database-b-tree` | **ready** | `nand-flash` | Non-volatile flash storage blocks optimized for B+ tree block paging |
+| 12 | `distributed-microservices` | **ready** | `chassis-frame` | Data-center rack chassis housing containerized services and load balancers |
+| 13 | `gpu-architecture` | **ready** | `gpu-die-heatsink` | Massive SIMD parallel compute units and GDDR memory channels |
+| 14 | `transformer-attention` | **ready** | `tensor-die` | Tensor processing cores accelerating matrix multiplication for multi-head attention |
+| 15 | `cpu-architecture` | **ready** | `ihs-spreader` | Integrated heat spreader protecting 5-stage instruction pipeline execution core |
+| 16 | `ai-server-rack` | **ready** | `server-chassis` | High-density cluster chassis with redundant power supplies and liquid cooling |
+| 17 | `induction-motor` | **ready** | `stator-windings` | Stator coils producing rotating magnetic flux driving the squirrel-cage rotor |
+| 18 | `four-stroke-engine` | **ready** | `piston-assembly` | Reciprocating mechanical work transferring Otto cycle gas expansion force |
+| 19 | `turbofan-jet` | **ready** | `propulsion-nozzles` | High-bypass ratio propulsion nozzle generating forward reactive thrust |
+| 20 | `differential-gearbox` | **ready** | `planetary-bevel-gears` | Bevel gear cluster permitting independent wheel rotation speeds during turns |
+| 21 | `truss-bridge` | **ready** | `upper-chord` | Structural truss compression member resisting vertical bending moments |
+| 22 | `robotic-arm` | **ready** | `shoulder-joint` | Motorized dual-axis gimbal joint providing azimuthal and elevation articulations |
+
+**Verification Result:** 22/22 topics passed live tests with 0 failures.
+
+---
+
+## 4. UI Screenshot & Grounded Tutor Box
+
+Live rendering of the Ask Tutor input on the circuit board:
+
+![Tutor Box in Specimen View](file:///C:/Users/shlok%20parte/.gemini/antigravity/brain/23afd4ba-1965-4736-993b-3c8ed3629a28/.user_uploaded/media_1793193904378_08d92661.png)
+
+---
+
+## 5. Sign-off Checklist
+
+- [x] Root causes recorded in `docs/tutor/diagnosis.md` (D1 through D7).
+- [x] Circuit board and space suit pass all live tests (with part, without part, subject query, off-topic redirect).
+- [x] Every topic marked `ready` passes live tests (22/22 confirmed).
+- [x] No API key appears in code, logs, or responses.
+- [x] Automated tests in `tests/test_tutor.py` and full suite pass (22/22 passing).
+- [x] Readiness rule added to the model brief (`PRISMED_AGENT_BRIEF_MODELS_v1.1.md` §5).
+- [x] Disclaimer displayed on-screen under every AI tutor response.

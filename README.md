@@ -91,3 +91,4 @@ npm run build
 ## License
 
 Code is licensed under the MIT License. 3D specimen models retain their respective open-source licenses (CC-BY-4.0, MIT, NASA Public Domain, KiCad GPL+exception) as documented in [`MODEL_REPORT.md`](MODEL_REPORT.md) and each model's `license.txt`.
+
