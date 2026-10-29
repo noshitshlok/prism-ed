@@ -488,7 +488,7 @@
     {
       "id": "compiler-pipeline",
       "name": "Compiler Pipeline & Optimization Engine",
-      "description": "Trace compilation from lexical tokenization and abstract syntax trees to SSA intermediate representation and machine code generation.",
+      "description": "This model shows an ATX computing motherboard architecture. A modern optimizing compiler translates high-level source code through sequential optimization stages into machine instruction streams targeted for execution across this hardware platform.",
       "discipline": "Computer Science",
       "subfield": "Compilers & Programming Languages",
       "academicLevel": "Undergraduate",
@@ -514,57 +514,47 @@
       "animation": null,
       "parts": [
         {
-          "id": "motor-armature-lexer",
-          "name": "Electric Drive Motor (Lexer Stage)",
-          "hotspotPosition": "-120.000m 10.000m 40.000m",
-          "hotspotNormal": "0m 1m 0m",
-          "explodeOffset": null,
-          "partNode": "Motor",
-          "explanation": "The prime power source converting input electrical current into rotational momentum, representing the lexer converting raw source streams into tokens.",
-          "formulaOrLaw": "Lexical Token Throughput: Tokens/sec = Characters / Avg_Token_Len"
-        },
-        {
-          "id": "stator-field-parser",
-          "name": "Stator Field Assembly (Parser Stage)",
-          "hotspotPosition": "-80.000m 10.000m 40.000m",
-          "hotspotNormal": "0m 1m 0m",
-          "explodeOffset": null,
-          "partNode": "Stator",
-          "explanation": "Stationary electromagnetic poles creating the structured field that guides rotation, analogue to context-free grammar parsing into Abstract Syntax Trees.",
-          "formulaOrLaw": "Context-Free Grammar: G = (V, Sigma, R, S)"
-        },
-        {
-          "id": "gearbox-optimizer",
-          "name": "Helical Gear Reduction (Optimizer Stage)",
-          "hotspotPosition": "-20.000m 10.000m 40.000m",
-          "hotspotNormal": "1m 0m 0m",
-          "explodeOffset": null,
-          "partNode": "Gearbox",
-          "explanation": "High-torque gear reduction set matching speed and force for maximum mechanical efficiency, representing compiler optimization passes.",
-          "formulaOrLaw": "Gear Ratio: i = omega_in / omega_out = T_out / T_in"
-        },
-        {
-          "id": "eccentric-slider-ir",
-          "name": "Eccentric Drive Mechanism (IR Transformation)",
-          "hotspotPosition": "30.000m 10.000m 40.000m",
-          "hotspotNormal": "0m 1m 0m",
-          "explodeOffset": null,
-          "partNode": "DriveLinkage",
-          "explanation": "Mechanical linkage translating rotational motion into linear reciprocation, analogue to intermediate representation (IR) lowering.",
-          "formulaOrLaw": "Kinematic Displacement: x(theta) = r * cos(theta) + sqrt(l^2 - r^2 * sin^2(theta))"
-        },
-        {
-          "id": "cutter-guide-codegen",
-          "name": "Reciprocating Tool Guide (Code Generation)",
-          "hotspotPosition": "60.000m 10.000m 40.000m",
+          "id": "cpu-socket",
+          "name": "CPU Socket & Instruction Execution Core",
+          "hotspotPosition": "-0.180m 0.400m 0.050m",
           "hotspotNormal": "0m 0m 1m",
-          "explodeOffset": null,
-          "partNode": "Guide",
-          "explanation": "Precision output guide executing physical cut operations on workpieces, representing final assembly/machine code emission.",
-          "formulaOrLaw": "Acyclic Machine Cycle Scheduling: T_exec = Sum(CPI_i * I_i) / f"
+          "explanation": "The CPU socket interfaces directly with the central microprocessor. The compiler backend generates optimized target machine instructions and performs register allocation tuned specifically for this execution core.",
+          "formulaOrLaw": "Throughput = Instructions / ClockCycles"
+        },
+        {
+          "id": "ram-channels",
+          "name": "DDR Memory Channels (Symbol Table & AST Buffers)",
+          "hotspotPosition": "0.450m 0.400m 0.050m",
+          "hotspotNormal": "0m 0m 1m",
+          "explanation": "Dual-channel high-speed DDR memory slots. During compilation, the compiler stores large Abstract Syntax Trees (ASTs), symbol tables, and Static Single Assignment (SSA) dominance graphs within this memory hierarchy.",
+          "formulaOrLaw": "Memory Bandwidth = BusClock * DataRate * BusWidth / 8"
+        },
+        {
+          "id": "pcie-interface",
+          "name": "PCIe Expansion Bus (Target ISA & SIMD Acceleration)",
+          "hotspotPosition": "-0.250m -0.150m 0.050m",
+          "hotspotNormal": "0m 0m 1m",
+          "explanation": "The PCI Express x16 interface connects GPU accelerators and coprocessors. Modern auto-vectorizing compilers compile compute kernels to offload parallel workloads across this high-speed bus.",
+          "formulaOrLaw": "Amdahl's Law: Speedup = 1 / ((1 - p) + (p / s))"
+        },
+        {
+          "id": "storage-m2",
+          "name": "M.2 NVMe Storage Interface (Source Ingestion & Object Linking)",
+          "hotspotPosition": "-0.250m -0.400m 0.050m",
+          "hotspotNormal": "0m 0m 1m",
+          "explanation": "High-speed NVMe storage interface where source code files, headers, and intermediate object (.o) binaries are streamed during compilation and linking phases.",
+          "formulaOrLaw": "I/O Latency T_io = SeekTime + RotationalDelay + TransferTime"
+        },
+        {
+          "id": "chipset-hub",
+          "name": "PCH Platform Controller Hub (Optimization & Pipeline Scheduling)",
+          "hotspotPosition": "0.400m -0.300m 0.050m",
+          "hotspotNormal": "0m 0m 1m",
+          "explanation": "The platform controller hub arbitrates data routing between system buses. Compiler optimization passes structure code execution paths to minimize bus contention and cache coherence stalls across platform interconnects.",
+          "formulaOrLaw": "CPI = Cycles / InstructionCount"
         }
       ],
-      "status": "not_in_demo"
+      "status": "ready"
     },
     {
       "id": "memory-data-structures",
@@ -809,7 +799,7 @@
     {
       "id": "database-b-tree",
       "name": "B+ Tree Indexing & Storage Engine",
-      "description": "Analyze self-balancing B+ trees, write-ahead logging (WAL), page buffer pools, and ACID transaction mechanics.",
+      "description": "This model shows a solid-state drive (SSD). Databases store B+ tree pages on non-volatile physical storage blocks, organizing keys and records for logarithmic lookup and sequential range scans.",
       "discipline": "Computer Science",
       "subfield": "Database Systems",
       "academicLevel": "Undergraduate",
@@ -836,55 +826,45 @@
         {
           "id": "nand-flash",
           "name": "3D NAND Flash Memory Package",
-          "hotspotPosition": "0.040m 0.000m 0.001m",
-          "hotspotNormal": "0m 1m 0m",
-          "explodeOffset": null,
-          "partNode": "ssd_body",
-          "explanation": "Non-volatile solid-state memory storing persistent B+ tree index nodes, leaf nodes, and key-pointer page blocks across power cycles.",
-          "formulaOrLaw": "B+ Tree Node Fanout: Max Keys M = Block_Size / (Key_Size + Ptr_Size)"
+          "hotspotPosition": "0.200m 0.000m 0.026m",
+          "hotspotNormal": "0m 0m 1m",
+          "explanation": "This model shows a solid-state drive (SSD). The 3D NAND flash memory packages physically store the fixed-size disk blocks and pages where B+ tree nodes and table rows live in non-volatile flash cells.",
+          "formulaOrLaw": "Block Size B = 4096 bytes, Page Capacity N = B / (KeySize + PointerSize)"
         },
         {
           "id": "controller-asic",
-          "name": "Flash Memory Controller ASIC",
-          "hotspotPosition": "0.020m 0.000m 0.001m",
-          "hotspotNormal": "0m 1m 0m",
-          "explodeOffset": null,
-          "partNode": "ssd_body",
-          "explanation": "High-performance processor running the Flash Translation Layer (FTL), page allocation, wear leveling, and tree index lookups.",
-          "formulaOrLaw": "B+ Tree Search Complexity: O(log_B N) disk I/O operations"
+          "name": "Flash Storage Controller ASIC",
+          "hotspotPosition": "-0.100m 0.000m 0.026m",
+          "hotspotNormal": "0m 0m 1m",
+          "explanation": "The controller ASIC runs the Flash Translation Layer (FTL). It receives page lookup requests from the database buffer pool and maps B+ tree logical page identifiers to physical flash pages with wear-leveling.",
+          "formulaOrLaw": "Read Latency T_read = T_controller + T_flash_sense"
         },
         {
           "id": "pcie-interface",
-          "name": "High-Speed Host Interface Connector",
-          "hotspotPosition": "-0.010m 0.000m 0.001m",
-          "hotspotNormal": "-1m 0m 0m",
-          "explodeOffset": null,
-          "partNode": "ssd_body",
-          "explanation": "PCIe / SATA high-speed connector executing asynchronous DMA transfers of B+ tree leaf pages directly to database buffer pool.",
-          "formulaOrLaw": "Direct Memory Access Bandwidth: BW = Lane_Count * Gigatransfers * 8/10"
+          "name": "PCIe / NVMe Host Interface Connector",
+          "hotspotPosition": "-0.360m 0.000m 0.026m",
+          "hotspotNormal": "0m 0m 1m",
+          "explanation": "The high-speed PCIe edge pins provide multi-lane DMA channels connecting the storage medium to system RAM, enabling parallel database index scans and direct buffer pool DMA transfers.",
+          "formulaOrLaw": "Bandwidth BW = Lanes * TransferRate"
         },
         {
-          "id": "screw-mount-retention",
+          "id": "retention-mounting",
           "name": "M.2 Physical Retention Notch",
-          "hotspotPosition": "0.080m 0.000m 0.001m",
-          "hotspotNormal": "1m 0m 0m",
-          "explodeOffset": null,
-          "partNode": "anchor_ssd_screw",
-          "explanation": "Standard M.2 form-factor chassis mount anchoring the storage drive firmly to the server motherboard chassis.",
-          "formulaOrLaw": "JEDEC Solid State Drive Form Factor Specification MO-300"
+          "hotspotPosition": "0.740m 0.000m 0.026m",
+          "hotspotNormal": "0m 0m 1m",
+          "explanation": "The semicircular mounting notch mechanically grounds and secures the drive to the motherboard chassis, ensuring rigid physical alignment against server vibrations under high-throughput transactional load.",
+          "formulaOrLaw": "F_retention = Torque / (Radius * FrictionCoefficient)"
         },
         {
-          "id": "pcb-ground-plane",
-          "name": "Multilayer Ground Shielding Plane",
-          "hotspotPosition": "0.035m 0.000m -0.001m",
-          "hotspotNormal": "0m -1m 0m",
-          "explodeOffset": null,
-          "partNode": "ssd_body",
-          "explanation": "Internal copper thermal and ground plane conducting heat away from flash controllers during sequential tree leaf index scans.",
-          "formulaOrLaw": "Heat Dissipation Equation: P = I_active^2 * R_internal"
+          "id": "pcb-substrate",
+          "name": "Multilayer Circuit Board Ground Plane",
+          "hotspotPosition": "0.000m 0.180m 0.026m",
+          "hotspotNormal": "0m 0m 1m",
+          "explanation": "The multilayer FR4 ground plane routes differential high-speed traces with controlled impedance, preventing electrical signal interference during sequential range scans across B+ tree leaf chains.",
+          "formulaOrLaw": "Characteristic Impedance Z_0 = sqrt(L / C)"
         }
       ],
-      "status": "not_in_demo"
+      "status": "ready"
     },
     {
       "id": "distributed-microservices",

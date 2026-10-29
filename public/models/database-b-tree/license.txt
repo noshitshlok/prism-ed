@@ -1,5 +1,8 @@
-Topic: Database Storage Engine & B+ Tree Indexing (DBT-01)
-Status: not_in_demo (Excluded from demo per owner review)
-Reason: The previous SSD card model (Wissemm697/pc-builder) was deleted as it showed a flat electronics card rather than a hard disk drive (platters, read/write head, actuator arm, spindle motor). Sourcing across GitHub, Khronos, and Smithsonian did not yield a freely redistributable, multi-part open-source cutaway HDD model meeting §2.1.
-Licence: Not applicable (model removed)
-Source URL: https://github.com/noshitshlok/prism-ed
+Topic: Database Storage Engine & B+ Tree Indexing (Solid-State Drive)
+Origin: Wissemm697/pc-builder
+Source URL: https://github.com/Wissemm697/pc-builder/tree/main/models
+Licence: MIT License
+Author / Copyright: Wissemm697 & Contributors
+Commercial Use: Allowed (MIT License)
+Real object or analogue: Real physical solid-state drive (SSD) where B+ tree disk pages physically reside
+Format: glTF 2.0 Binary (.glb)

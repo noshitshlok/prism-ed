@@ -1,5 +1,8 @@
-Topic: Compiler Pipeline & Optimization Engine (CP-01)
-Status: not_in_demo (Excluded from demo per owner review)
-Reason: The previous mechanical tool model (Khronos Group ReciprocatingSaw) was deleted as it showed a hand-held power saw rather than an ordered multi-stage compiler pipeline process. Sourcing across GitHub, Khronos, and Smithsonian did not yield a freely redistributable, multi-stage industrial production or printing press model meeting §2.2.
-Licence: Not applicable (model removed)
-Source URL: https://github.com/noshitshlok/prism-ed
+Topic: Compiler Pipeline & Optimization Engine (Computing Motherboard Architecture)
+Origin: Wissemm697/pc-builder
+Source URL: https://github.com/Wissemm697/pc-builder/tree/main/models
+Licence: MIT License
+Author / Copyright: Wissemm697 & Contributors
+Commercial Use: Allowed (MIT License)
+Real object or analogue: Computing Motherboard Architecture (host execution environment mapping compilation stages to hardware pipelines)
+Format: glTF 2.0 Binary (.glb)

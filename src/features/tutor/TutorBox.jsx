@@ -24,10 +24,12 @@ export default function TutorBox({ topicId, partId = null, partName = null, topi
       e.stopPropagation();
     }
 
-    const currentQ = (retryQ || question).trim();
+    // If user presses Ask or Enter without typing, ask the suggested placeholder question!
+    const currentQ = (retryQ || question.trim() || placeholderText).trim();
     if (!currentQ || currentQ.length < 2 || isLoading) return;
 
     setLastQuestion(currentQ);
+    setQuestion(currentQ);
     setAnswer("");
     setError(null);
     setIsLoading(true);
@@ -53,7 +55,6 @@ export default function TutorBox({ topicId, partId = null, partName = null, topi
               { role: "user", content: currentQ },
               { role: "assistant", content: fallbackAns },
             ]);
-            setQuestion("");
             setIsLoading(false);
             return;
           } catch {
@@ -68,7 +69,6 @@ export default function TutorBox({ topicId, partId = null, partName = null, topi
           { role: "user", content: currentQ },
           { role: "assistant", content: streamedAccumulator },
         ]);
-        setQuestion("");
       },
       async (_err) => {
         // Fallback to standard HTTP /ask if streaming encounters an issue
@@ -80,7 +80,6 @@ export default function TutorBox({ topicId, partId = null, partName = null, topi
             { role: "user", content: currentQ },
             { role: "assistant", content: fallbackAns },
           ]);
-          setQuestion("");
           setIsLoading(false);
         } catch {
           setError("The tutor is unavailable right now.");
@@ -155,14 +154,15 @@ export default function TutorBox({ topicId, partId = null, partName = null, topi
         <button
           type="submit"
           className="glass-control"
-          disabled={isLoading || question.trim().length < 2}
+          disabled={isLoading}
           style={{
             padding: "8px 16px",
             background: "var(--amber)",
             color: "var(--bench-900)",
             fontWeight: 600,
             fontSize: "13px",
-            opacity: isLoading || question.trim().length < 2 ? 0.6 : 1,
+            opacity: isLoading ? 0.6 : 1,
+            cursor: isLoading ? "not-allowed" : "pointer",
           }}
         >
           {isLoading ? "..." : "Ask"}

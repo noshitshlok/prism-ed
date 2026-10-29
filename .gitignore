@@ -1,10 +1,14 @@
 # Environment and Secrets (STRICT - NEVER COMMIT)
 .env
 .env.*
+app/.env
+app/.env.*
 !.env.example
+!app/.env.example
 *.key
 *.pem
 secrets/
+scratch/
 
 # Database & State
 prismed.db

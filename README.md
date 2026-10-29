@@ -23,6 +23,8 @@
 
 ## Quick Start
 
+> For a complete step-by-step setup walkthrough including API keys and troubleshooting, check out the [**SETUP_GUIDE.md**](SETUP_GUIDE.md).
+
 ### 1. Backend Setup (FastAPI)
 ```bash
 # Clone the repository

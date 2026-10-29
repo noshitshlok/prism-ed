@@ -42,3 +42,4 @@ Per §1 Rule 5, §1 Rule 6, and §8 of `PRISMED_AGENT_FIX_BTREE_COMPILER.md`:
 - A model of the wrong object is strictly worse than no model.
 - Substituting primitive cubes, cylinders, or unrelated tools is forbidden.
 - Since neither authentic multi-part HDD model nor verified open industrial production line model could be sourced without authentication/licence violations, both topics are honestly excluded and set to `status: "not_in_demo"`.
+
