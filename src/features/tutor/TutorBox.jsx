@@ -43,15 +43,31 @@ export default function TutorBox({ topicId, partId = null, partName = null, topi
         streamedAccumulator += token;
         setAnswer(streamedAccumulator);
       },
-      () => {
-        setIsLoading(false);
-        if (streamedAccumulator) {
-          setHistory((prev) => [
-            ...prev,
-            { role: "user", content: currentQ },
-            { role: "assistant", content: streamedAccumulator },
-          ]);
+      async () => {
+        if (!streamedAccumulator) {
+          try {
+            const fallbackAns = await askTutor(topicId, partId, currentQ, history);
+            setAnswer(fallbackAns);
+            setHistory((prev) => [
+              ...prev,
+              { role: "user", content: currentQ },
+              { role: "assistant", content: fallbackAns },
+            ]);
+            setQuestion("");
+            setIsLoading(false);
+            return;
+          } catch {
+            setError("The tutor is unavailable right now.");
+            setIsLoading(false);
+            return;
+          }
         }
+        setIsLoading(false);
+        setHistory((prev) => [
+          ...prev,
+          { role: "user", content: currentQ },
+          { role: "assistant", content: streamedAccumulator },
+        ]);
         setQuestion("");
       },
       async (_err) => {

@@ -40,20 +40,22 @@ export async function streamTutor(topicId, partId, question, history = [], onChu
             if (done) break;
 
             buffer += decoder.decode(value, { stream: true });
-            const lines = buffer.split("\n\n");
-            buffer = lines.pop(); // retain incomplete block
+            const blocks = buffer.split(/\r?\n\r?\n/);
+            buffer = blocks.pop() || ""; // retain incomplete block
 
-            for (const line of lines) {
-                if (line.includes("data: ")) {
-                    const dataStr = line.replace(/.*data: /, "").trim();
-                    if (!dataStr) continue;
-                    try {
-                        const parsed = JSON.parse(dataStr);
-                        if (parsed.token) onChunk(parsed.token);
-                        if (parsed.done && onDone) onDone();
-                        if (parsed.error && onError) onError(parsed.error);
-                    } catch {
-                        // ignore malformed chunks
+            for (const block of blocks) {
+                const lines = block.split(/\r?\n/);
+                for (const line of lines) {
+                    if (line.startsWith("data:")) {
+                        const dataStr = line.slice(5).trim();
+                        if (!dataStr) continue;
+                        try {
+                            const parsed = JSON.parse(dataStr);
+                            if (parsed.token) onChunk(parsed.token);
+                            if (parsed.error && onError) onError(parsed.error);
+                        } catch {
+                            // ignore malformed chunks
+                        }
                     }
                 }
             }
